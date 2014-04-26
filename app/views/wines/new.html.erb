@@ -1,0 +1,25 @@
+Add Wine
+
+<%= form_for @wines do |f| %>
+
+  <%= f.label :wine_fruit_taste, class: "form-label" %>
+  <%= f.text_field :wine_fruit_taste %>
+
+  <%= f.label :wine_sweetness, class: "form-label" %>
+  <%= f.text_field :wine_sweetness %>
+
+  <%= f.label :wine_body, class: "form-label" %>
+  <%= f.text_field :wine_body %>
+
+  <%= f.label :wine_vintage, class: "form-label" %>
+  <%= f.text_field :wine_vintage %>
+
+  <%= f.label :wine_abv, class: "form-label" %>
+  <%= f.text_field :wine_abv %>
+
+  <%= f.label :wine_overall_rating, class: "form-label" %>
+  <%= f.text_field :wine_overall_rating %>
+
+  <%= f.submit :Submit %>
+<% end %>
+

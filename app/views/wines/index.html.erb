@@ -1,0 +1,20 @@
+Wines
+
+Top Wines
+
+Maybe Again
+
+Never Again
+
+<a href="/wines/new">Add Wine</a>
+
+<% @wines.each do |wine| %>
+
+<%= wine.wine_fruit_taste %>
+<%= wine.wine_sweetness %>
+<%= wine.wine_body %>
+<%= wine.wine_vintage %>
+<%= wine.wine_abv %>
+<%= wine.wine_overall_rating %>
+
+<% end %>

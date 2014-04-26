@@ -1,6 +1,4 @@
-Add Wine
-
-<%= form_for @wines do |f| %>
+<%= form_for @edited_wine do |f| %>
 
   <%= f.label :wine_type, class: "form-label" %>
   <%= f.text_field :wine_type %>
@@ -25,4 +23,3 @@ Add Wine
 
   <%= f.submit :Submit %>
 <% end %>
-

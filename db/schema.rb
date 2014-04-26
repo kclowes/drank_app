@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425212236) do
+ActiveRecord::Schema.define(version: 20140426040923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140425212236) do
     t.string "wine_vintage"
     t.string "wine_abv"
     t.string "wine_overall_rating"
+    t.string "wine_type"
   end
 
 end

@@ -24,8 +24,7 @@ class WinesController < ApplicationController
   end
 
   def edit
-    id = params[:id]
-    @edited_wine = Wine.find(id)
+    @edited_wine = Wine.find(params[:id])
   end
 
   def update

@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+body, html {
+    font-family: 'Raleway', 'sans-serif';
+    background-color: #3E4147;
+}
+
+h3 {
+    font-family: 'Raleway', 'sans-serif';
+}
+
+header {
+    width: 960px;
+    background: #FFFEDF;
+    margin: auto;
+}
+
+#wrapper {
+    background-color: #FFFEDF;
+    position: relative;
+    margin: auto;
+    width: 960px;
+    min-height: 100%;
+}
+
+.button {
+
+    height: 50px;
+    width: 100px;
+
+}

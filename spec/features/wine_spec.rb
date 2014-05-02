@@ -1,14 +1,11 @@
-require './spec/spec_helper'
+require 'spec_helper'
 
 feature 'user can see wines displayed' do
   scenario 'user can enter a wine and it will be saved in the database' do
     visit '/'
     expect(page).to have_content('Welcome!')
-    click_on 'Wine Drank'
+    click_on 'Wine'
     expect(page).to have_content('Wines')
-    expect(page).to have_content('Top Wines')
-    expect(page).to have_content('Maybe Again')
-    expect(page).to have_content('Never Again')
     click_on 'Add Wine'
     fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
@@ -18,12 +15,14 @@ feature 'user can see wines displayed' do
     fill_in 'wine[wine_abv]', :with => '13%'
     fill_in 'wine[wine_overall_rating]', :with => '6'
     click_on 'Submit'
-    expect(page).to have_content 'peach 5 full 2004 13% 6'
+    expect(page).to have_content 'Pinot Grigio'
+    expect(page).to have_content '2004'
+    expect(page).to have_content '6'
   end
 
   scenario 'user can update a wine' do
     visit '/'
-    click_on 'Wine Drank'
+    click_on 'Wine'
     click_on 'Add Wine'
     fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
@@ -41,7 +40,7 @@ feature 'user can see wines displayed' do
 
   scenario 'user can delete a wine' do
     visit '/'
-    click_on 'Wine Drank'
+    click_on 'Wine'
     click_on 'Add Wine'
     fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'

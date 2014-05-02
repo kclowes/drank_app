@@ -1,5 +1,3 @@
-<div id="wrapper">
-
 <% @wines.each do |wine| %>
   <%= wine.wine_type %>
   <%= wine.wine_fruit_taste %>
@@ -13,5 +11,3 @@
   <a data-method="delete" href="/wines/<%= wine.id %>">Delete this <%= wine.wine_type %></a>
 
 <% end %>
-
-</div>

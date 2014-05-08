@@ -1,0 +1,3 @@
+class Session < User
+
+end

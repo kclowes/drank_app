@@ -9,7 +9,21 @@ Rails.application.routes.draw do
 
   resources :wines
 
-  get '/assets/images/drank_logo.png' => 'wines#index'
+  resources :users
+
+  #get '/users', to: 'users#index'
+  #get '/users/new', to: 'users#new'
+  #post '/users', to: 'users#create'
+  #get '/users/:id', to: 'users#show'
+  #get '/users/:id/edit', to: 'users#edit'
+  #patch/put '/users/:id', to: 'users#update'
+  #delete '/users/:id', to: 'users#destroy'
+
+  get '/sessions', to: 'sessions#new'
+
+  post '/sessions', to: 'sessions#create'
+
+  get '/logout', to: 'users#logout'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

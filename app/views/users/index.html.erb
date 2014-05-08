@@ -1,0 +1,16 @@
+<% if session[:id].nil? %>
+  <h1>Welcome</h1>
+  <a href="/users/new">Register</a>
+  <a href="/sessions">Login</a>
+
+<% else %>
+  <h1>Welcome <%= @user.email %>!</h1>
+
+  <div id="link">
+    <p>I drank...</p>
+    <a href="/wines">Wine</a>
+  </div>
+
+  <a href="/logout">Logout</a>
+
+<% end %>

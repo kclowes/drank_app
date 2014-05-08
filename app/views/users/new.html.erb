@@ -1,0 +1,16 @@
+<%= form_for @users do |f| %>
+
+  <% if @users.errors.present? %>
+    <% @users.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
+
+  <%= f.label :email, 'Email Address' %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.button :register %>
+<% end %>

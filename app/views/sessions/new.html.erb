@@ -1,10 +1,16 @@
-<%= form_for @sessions do |f| %>
+<h1>Login</h1>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+<%= form_tag url: sessions_path do %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <% if @errors.present? %>
+    <%= @errors %>
+  <% end %>
 
-  <%= f.button :login %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+
+  <%= button_tag :login %>
 <% end %>

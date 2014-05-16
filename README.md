@@ -2,30 +2,27 @@
 
 [![Code Climate](https://codeclimate.com/github/kclowes/drank_app.png)](https://codeclimate.com/github/kclowes/drank_app)
 
-
-Drank
-===
-
-Background:
+Background
+==
 
 This is an app where you can track wines you drank. Eventually users will be able to upload pictures of wine
 bottles and be able to rate them.
 
 
 Staging URL:
-===
+==
 http://drank-staging.herokuapp.com/
 
 Production URL:
-===
+==
 http://drank-app.herokuapp.com
 
 Tracker URL:
-===
+==
 https://www.pivotaltracker.com/n/projects/1068106
 
 Setup
-===
+==
 
 1. Bundle install.
 

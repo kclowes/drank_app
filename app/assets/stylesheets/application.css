@@ -21,6 +21,10 @@ body, html {
     color: #3E4147;
 }
 
+h1 {
+    text-align: center;
+}
+
 h3 {
     font-family: 'Raleway', 'sans-serif';
     padding: 2%;
@@ -28,6 +32,16 @@ h3 {
 
 h1, #each_wine, #add-wine-link {
     padding: 1%
+}
+
+#each_wine {
+    display: inline-block;
+    padding: 1%;
+    width: 20%;
+}
+
+#edit_link, #delete_link, #overall_rating {
+    padding: 1%;
 }
 
 header {
@@ -71,10 +85,10 @@ footer {
 }
 
 /*wine index page*/
-
 #add-wine-link {
     margin-top: 5%;
     padding: 1%;
+    text-align: center;
 }
 
 #overall_rating {
@@ -88,4 +102,48 @@ footer {
 /*wine edit page*/
 .edit_wine, .new_wine {
     margin: 1%;
+}
+
+/*new user page*/
+#user_email, #user_password {
+    font-size: .75em;
+    margin-left: 1%;
+}
+
+#new_email, #new_password {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-left: 42%;
+    padding-top: 3%;
+}
+
+#new_register_button {
+    display: inline-block;
+    margin-left: 50.25%;
+    padding-top: 3%;
+}
+
+button {
+    height: 30px;
+    width: 80px;
+    font-size: 1em;
+}
+
+/*login page*/
+#email, #password {
+    font-size: .75em;
+    margin-left: 1%;
+}
+
+
+#exist_email, #exist_password {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-left: 42%;
+    padding-top: 3%;
+}
+
+#login_button {
+    margin-left: 47.25%;
+    padding: 3%;
 }

@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/kclowes/drank_app.svg?branch=master)](https://travis-ci.org/kclowes/drank_app)
 
+[![Code Climate](https://codeclimate.com/github/kclowes/drank_app.png)](https://codeclimate.com/github/kclowes/drank_app)
+
 
 Drank
 ===

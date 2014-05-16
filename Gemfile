@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bcrypt', '~> 3.1.7'
+gem 'travis', '~> 1.6.11'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
@@ -21,14 +22,3 @@ end
 group :development do
   gem 'rails_12factor', '~> 0.0.2'
 end
-
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-

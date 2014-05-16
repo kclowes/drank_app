@@ -104,7 +104,7 @@ footer {
     margin: 1%;
 }
 
-/*new user page*/
+/*register page*/
 #user_email, #user_password {
     font-size: .75em;
     margin-left: 1%;
@@ -129,6 +129,9 @@ button {
     font-size: 1em;
 }
 
+#errors {
+    text-align: center;
+}
 /*login page*/
 #email, #password {
     font-size: .75em;

@@ -3,7 +3,9 @@
 <%= form_tag url: sessions_path do %>
 
   <% if @errors.present? %>
-    <%= @errors %>
+    <div id="errors">
+      <%= @errors %>
+    </div>
   <% end %>
 
   <div id="exist_email">

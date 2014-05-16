@@ -19,12 +19,13 @@ Tracker URL:
 ===
 https://www.pivotaltracker.com/n/projects/1068106
 
-Setup==
+Setup
+===
 
 1. Bundle install
 
 2. Create databases for development and testing: Run '$rake db:create db:migrate' to create the development
-database and run the migrations. You will also need to run '$RAILS_ENV db:create db:migrate' to setup your testing
+database and run the migrations. You will also need to run '$RAILS_ENV=test db:migrate' to setup your testing
 database.
 
 3. Testing suite is RSpec.

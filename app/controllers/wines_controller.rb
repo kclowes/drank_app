@@ -5,13 +5,7 @@ class WinesController < ApplicationController
   end
 
   def create
-    @wines = Wine.create(wine_type: params[:wine][:wine_type],
-                         wine_fruit_taste: params[:wine][:wine_fruit_taste],
-                         wine_sweetness: params[:wine][:wine_sweetness],
-                         wine_body: params[:wine][:wine_body],
-                         wine_vintage: params[:wine][:wine_vintage],
-                         wine_abv: params[:wine][:wine_abv],
-                         wine_overall_rating: params[:wine][:wine_overall_rating])
+    @wines = Wine.create(wine_info)
     redirect_to wines_path
   end
 
@@ -29,13 +23,7 @@ class WinesController < ApplicationController
 
   def update
     wine = Wine.find(params[:id])
-    wine.update(wine_type: params[:wine][:wine_type],
-                wine_fruit_taste: params[:wine][:wine_fruit_taste],
-                wine_sweetness: params[:wine][:wine_sweetness],
-                wine_body: params[:wine][:wine_body],
-                wine_vintage: params[:wine][:wine_vintage],
-                wine_abv: params[:wine][:wine_abv],
-                wine_overall_rating: params[:wine][:wine_overall_rating])
+    wine.update(wine_info)
     redirect_to wines_path
   end
 
@@ -43,5 +31,15 @@ class WinesController < ApplicationController
     wine = Wine.find(params[:id])
     wine.destroy
     redirect_to wines_path
+  end
+
+  def wine_info
+    {wine_type: params[:wine][:wine_type],
+     wine_fruit_taste: params[:wine][:wine_fruit_taste],
+     wine_sweetness: params[:wine][:wine_sweetness],
+     wine_body: params[:wine][:wine_body],
+     wine_vintage: params[:wine][:wine_vintage],
+     wine_abv: params[:wine][:wine_abv],
+     wine_overall_rating: params[:wine][:wine_overall_rating]}
   end
 end

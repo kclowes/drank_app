@@ -17,6 +17,9 @@
 
   <div id="nav_header">
     <a href="/wines">See All Wines</a>
+    <% if session[:id] %>
+      <a href="/logout">Logout</a>
+    <% end %>
   </div>
 </header>
 <div id="content_wrapper">

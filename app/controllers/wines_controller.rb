@@ -2,11 +2,13 @@ class WinesController < ApplicationController
 
   def new
     @wines = Wine.new
+    @collection = Collection.find(params[:collection_id])
+    @user = User.find(params[:user_id])
   end
 
   def create
     @wines = Wine.create(wine_info)
-    redirect_to wines_path
+    redirect_to user_collection_wines_path
   end
 
   def index
@@ -19,18 +21,20 @@ class WinesController < ApplicationController
 
   def edit
     @edited_wine = Wine.find(params[:id])
+    @collection = Collection.find(params[:collection_id])
+    @user = User.find(params[:user_id])
   end
 
   def update
     wine = Wine.find(params[:id])
     wine.update(wine_info)
-    redirect_to wines_path
+    redirect_to user_collection_wines_path
   end
 
   def destroy
     wine = Wine.find(params[:id])
     wine.destroy
-    redirect_to wines_path
+    redirect_to user_collection_wines_path
   end
 
   def wine_info

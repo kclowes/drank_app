@@ -1,6 +1,6 @@
 <h1>Edit</h1>
 
-<%= form_for @edited_wine do |f| %>
+<%= form_for [@user, @collection, @edited_wine] do |f| %>
   <div id="column1">
     <%= f.label :wine_type, 'Wine Type', class: "form-label" %>
   </div>

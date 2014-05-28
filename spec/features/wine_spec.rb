@@ -3,9 +3,18 @@ require 'spec_helper'
 feature 'user can see wines displayed' do
   scenario 'user can enter a wine and it will be saved in the database' do
     visit '/'
-    expect(page).to have_content('Welcome!')
+    click_on 'Register'
+    fill_in 'user[email]', :with => 'keri@gmail.com'
+    fill_in 'user[password]', :with => 'password'
+    click_on 'register'
+    expect(page).to have_content('Welcome keri@gmail.com')
     click_on 'Wine'
-    expect(page).to have_content('Wines')
+    expect(page).to have_content('My Collections')
+    click_on 'Add New Collection'
+    fill_in 'collection[collection_name]', :with => 'Loved it'
+    click_on 'Add Collection'
+    expect(page).to have_content('Loved it')
+    click_on 'Loved it'
     click_on 'Add Wine'
     fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
@@ -22,7 +31,18 @@ feature 'user can see wines displayed' do
 
   scenario 'user can update a wine' do
     visit '/'
+    click_on 'Register'
+    fill_in 'user[email]', :with => 'keri@gmail.com'
+    fill_in 'user[password]', :with => 'password'
+    click_on 'register'
+    expect(page).to have_content('Welcome keri@gmail.com')
     click_on 'Wine'
+    expect(page).to have_content('My Collections')
+    click_on 'Add New Collection'
+    fill_in 'collection[collection_name]', :with => 'Loved it'
+    click_on 'Add Collection'
+    expect(page).to have_content('Loved it')
+    click_on 'Loved it'
     click_on 'Add Wine'
     fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
@@ -40,7 +60,18 @@ feature 'user can see wines displayed' do
 
   scenario 'user can delete a wine' do
     visit '/'
+    click_on 'Register'
+    fill_in 'user[email]', :with => 'keri@gmail.com'
+    fill_in 'user[password]', :with => 'password'
+    click_on 'register'
+    expect(page).to have_content('Welcome keri@gmail.com')
     click_on 'Wine'
+    expect(page).to have_content('My Collections')
+    click_on 'Add New Collection'
+    fill_in 'collection[collection_name]', :with => 'Loved it'
+    click_on 'Add Collection'
+    expect(page).to have_content('Loved it')
+    click_on 'Loved it'
     click_on 'Add Wine'
     fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'

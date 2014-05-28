@@ -38,6 +38,11 @@ class UsersController < ApplicationController
       session.clear
       redirect_to '/'
     end
+    #
+    #def show
+    #  id = session[:id]
+    #  @user = User.find(id)
+    #end
 
   end
 end

@@ -1,23 +1,36 @@
 <h1>Wines</h1>
 
-<% @wines.each do |wine| %>
-  <div id="each_wine">
-    <%= wine.wine_vintage %>
-    <%= wine.wine_type %>
-    <div id="overall_rating">
-    Overall Rating:
-    <%= wine.wine_overall_rating %>
+<% if session[:id].nil? %>
+  <% @wines.each do |wine| %>
+    <div id="each_wine">
+      <%= wine.wine_vintage %>
+      <%= wine.wine_type %>
+      <div id="overall_rating">
+        Overall Rating:
+        <%= wine.wine_overall_rating %>
+      </div>
     </div>
-    <div id="edit_link">
-    <a href="/wines/<%= wine.id %>/edit">Edit this <%= wine.wine_type %></a>
+  <% end %>
+<% else %>
+  <% @wines.each do |wine| %>
+    <div id="each_wine">
+      <%= wine.wine_vintage %>
+      <%= wine.wine_type %>
+      <div id="overall_rating">
+        Overall Rating:
+        <%= wine.wine_overall_rating %>
+      </div>
+      <div id="edit_link">
+        <a href="/wines/<%= wine.id %>/edit">Edit this <%= wine.wine_type %></a>
+      </div>
+      <div id="delete_link">
+        <a data-method="delete" href="/wines/<%= wine.id %>">Delete this <%= wine.wine_type %></a>
+      </div>
     </div>
-    <div id="delete_link">
-    <a data-method="delete" href="/wines/<%= wine.id %>">Delete this <%= wine.wine_type %></a>
-    </div>
+  <% end %>
+  <div id="add-wine-link">
+    <a href="/wines/new">Add Wine</a>
   </div>
 <% end %>
 
 
-<div id="add-wine-link">
-  <a href="/wines/new">Add Wine</a>
-</div>

@@ -1,0 +1,8 @@
+Show Collections
+
+<% @collection.wine_id do |wine_collection| %>
+  <h1><%= wine_collection %></h1>
+<% end %>
+
+<a href="/users/<%= @user.id %>/collections/<%= @collection.id %>/wines/new">Add Wine</a>
+

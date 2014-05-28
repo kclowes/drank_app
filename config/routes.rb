@@ -6,10 +6,13 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-
   resources :wines
 
-  resources :users
+  resources :users do
+    resources :collections do
+      resources :wines
+    end
+  end
 
   #get '/users', to: 'users#index'
   #get '/users/new', to: 'users#new'

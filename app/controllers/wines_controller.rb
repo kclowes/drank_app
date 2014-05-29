@@ -7,12 +7,24 @@ class WinesController < ApplicationController
   end
 
   def create
-    @wines = Wine.create(wine_info)
+    @collection = Collection.find(params[:collection_id])
+    @wine = Wine.create(wine_type: params[:wine][:wine_type],
+                        wine_fruit_taste: params[:wine][:wine_fruit_taste],
+                        wine_sweetness: params[:wine][:wine_sweetness],
+                        wine_body: params[:wine][:wine_body],
+                        wine_vintage: params[:wine][:wine_vintage],
+                        wine_abv: params[:wine][:wine_abv],
+                        wine_overall_rating: params[:wine][:wine_overall_rating],
+                        collection_id: params[:collection_id])
     redirect_to user_collection_wines_path
   end
 
   def index
-    @wines = Wine.all
+    if session[:id].nil?
+      @wines = Wine.all
+    else
+      @collection = Collection.find(params[:collection_id])
+    end
   end
 
   def show

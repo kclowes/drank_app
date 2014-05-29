@@ -26,4 +26,10 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
     @user = User.find(session[:id])
   end
+
+  def destroy
+    collection = Collection.find(params[:id])
+    collection.destroy
+    redirect_to user_collections_path
+  end
 end

@@ -1,6 +1,5 @@
-<h1>Wines</h1>
-
 <% if session[:id].nil? %>
+  <h1>Wines</h1>
   <% @wines.each do |wine| %>
     <div id="each_wine">
       <%= wine.wine_vintage %>
@@ -12,7 +11,8 @@
     </div>
   <% end %>
 <% else %>
-  <% @wines.each do |wine| %>
+  <h1><%= @collection.collection_name %></h1>
+  <% @collection.wines.each do |wine| %>
     <div id="each_wine">
       <%= wine.wine_vintage %>
       <%= wine.wine_type %>
@@ -21,16 +21,21 @@
         <%= wine.wine_overall_rating %>
       </div>
       <div id="edit_link">
-        <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/<%= wine.id %>/edit">Edit this <%= wine.wine_type %></a>
+        <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/<%= wine.id %>/edit">Edit
+          this <%= wine.wine_type %></a>
       </div>
       <div id="delete_link">
-        <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/<%= wine.id %>">Delete this <%= wine.wine_type %></a>
+        <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/<%= wine.id %>">Delete
+          this <%= wine.wine_type %></a>
       </div>
     </div>
   <% end %>
   <div id="add-wine-link">
-    <a href="/wines/new">Add Wine</a>
+    <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/new">Add Wine</a>
   </div>
+
+  <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>">Delete Collection</a>
+
 <% end %>
 
 

@@ -13,22 +13,6 @@ class UsersController < ApplicationController
       render 'users/new'
     end
 
-    #def login
-    #  @user = User.find_by_email(params[:email])
-    #  if @user.password == params[:password]
-    #    give_token
-    #  else
-    #    redirect_to home_url
-    #  end
-    #end
-
-    #def create
-    #  @user = User.new(params[:user])
-    #  @user.password = params[:password]
-    #  @user.save!
-    #end
-
-
     def index
       id = session[:id]
       @user = User.find(id)
@@ -38,11 +22,5 @@ class UsersController < ApplicationController
       session.clear
       redirect_to '/'
     end
-    #
-    #def show
-    #  id = session[:id]
-    #  @user = User.find(id)
-    #end
-
   end
 end

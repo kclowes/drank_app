@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527190029) do
+ActiveRecord::Schema.define(version: 20140529212112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,13 +33,14 @@ ActiveRecord::Schema.define(version: 20140527190029) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "wines", force: true do |t|
-    t.string "wine_fruit_taste"
-    t.string "wine_sweetness"
-    t.string "wine_body"
-    t.string "wine_vintage"
-    t.string "wine_abv"
-    t.string "wine_overall_rating"
-    t.string "wine_type"
+    t.string  "wine_fruit_taste"
+    t.string  "wine_sweetness"
+    t.string  "wine_body"
+    t.string  "wine_vintage"
+    t.string  "wine_abv"
+    t.string  "wine_overall_rating"
+    t.string  "wine_type"
+    t.integer "collection_id"
   end
 
 end

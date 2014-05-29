@@ -1,7 +1,7 @@
 <h1>My Collections</h1>
 
 <% @user.collections.each do |collection| %>
-  <a href="/users/<%= @user.id %>/collections/<%= collection.id %>"><%= collection.collection_name %></a>
+  <a href="/users/<%= @user.id %>/collections/<%= collection.id %>/wines"><%= collection.collection_name %></a>
 <% end %>
 
 <a href="/users/<%= @user.id %>/collections/new">Add New Collection</a>

@@ -7,7 +7,7 @@
   <%= wine.wine_abv %>
   <%= wine.wine_overall_rating %>
 
-  <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>wines/<%= wine.id %>/edit">Edit this <%= wine.wine_type %></a>
-  <a data-method="delete" href="/wines/<%= wine.id %>">Delete this <%= wine.wine_type %></a>
+  <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/<%= wine.id %>/edit">Edit this <%= wine.wine_type %></a>
+  <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/<%= wine.id %>">Delete this <%= wine.wine_type %></a>
 
 <% end %>

@@ -7,9 +7,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/wines', to: 'wines#index'
   get '/sessions', to: 'sessions#new'
-
   post '/sessions', to: 'sessions#create'
-
   get '/logout', to: 'users#logout'
 end

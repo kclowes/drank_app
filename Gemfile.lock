@@ -225,6 +225,7 @@ DEPENDENCIES
   capybara (~> 2.2.1)
   carrierwave (~> 0.10.0)
   coffee-rails (~> 4.0.0)
+  dotenv-deployment (~> 0.0.2)
   dotenv-rails (~> 0.11.1)
   fog (~> 1.22.1)
   jbuilder (~> 2.0)

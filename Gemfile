@@ -14,7 +14,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'travis', '~> 1.6.11'
 gem 'carrierwave', '~> 0.10.0'
 gem 'fog', '~> 1.22.1'
-gem 'dotenv', '~> 0.11.1'
+gem 'dotenv-rails', '~> 0.11.1'
 gem 'rmagick', '~> 2.13.2', :require => 'RMagick'
 
 group :test, :development do

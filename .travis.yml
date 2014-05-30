@@ -1,5 +1,12 @@
 language: ruby
 rvm:
-  - 2.1.1
+- 2.1.1
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:create db:migrate
+- RAILS_ENV=test bundle exec rake --trace db:create db:migrate
+env:
+  global:
+  - secure: dRWtFhj0LDLPV26jqA8qVdtsmcLS5qA6ZiQEpD72QWznewFSGf09yquF7FmBgaFoHnUIZpwxRtmEzvOlxqOK86T6krI5XWJGg46z8pZlsdSYWu8RzY8O3QrnGvLqM2dsNmZjxYJR4dU7xXQbkf4IgjdzalnN0PrWw5mcMP65sy0=
+  - secure: P0mdjUOSHsBSTjmESAnQjdPMelrDDCSKxg3DEn7hL25FppUmQH8oFlCiMMYtiWDwnzPUxphp+hn8K3AVFoHcYrrzwLLZdX7zE5ebbdT2YTWUnIDJVaeP2LjMZTeO9sbAjc47XXp9XpHRAC2QKSdIvgHz5n1VmlB+PKE/psJotD8=
+  - secure: QowKA0Ir2lVrlMW2KnRMxH3swrY+YbItjypz4zEutdoyQW1RsGHjbS1+2cRlUjqSOasLrtMQ4vuLAG12lEGrRtho+T+IOzKFTVL2n44WEuxFF3zWbAtqOUbVp1zfwJxaOPq3+xYj98CZSyBh1olb93OoFrReoO6o5eLG3mhxiD0=
+  - secure: VmCpKFLUu87tLC4DKY/0BaRBo4m6WOFIbarkxKhxx3n1vxpt4Qfi2Og8ZEbgbZ0XM/Ku+FXfapClJY+5wRK0qfSxfrwwGBpRjebf9vi2FNa37YCwenMwrzVp8Zf2L29Dj2ux09ANuRkTKF3+hOYUrRUi56tm6+n4NOH/LabEqPk=
+  - secure: l44Kv/umYxr2gOfzYc244+Q/axuBA03QI55wXa7gjRVpPkQrVcWUTPvs5AQNaGFK6DtpA/O3XoVnDWgTPtNLrkDGnTWNVpnyDOKCJAX7n5ZR1sGm3BpsCCsRg5awG3QB19KekJkikOyRKUR96Kgw83HKkH++ye6l9z4gRELCEjM=

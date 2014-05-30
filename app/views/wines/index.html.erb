@@ -2,6 +2,7 @@
   <h1>Wines</h1>
   <% @wines.each do |wine| %>
     <div id="each_wine">
+      <%= image_tag wine.wine_image_url(:thumb).to_s %>
       <%= wine.wine_vintage %>
       <%= wine.wine_type %>
       <div id="overall_rating">
@@ -14,6 +15,7 @@
   <h1><%= @collection.collection_name %></h1>
   <% @collection.wines.each do |wine| %>
     <div id="each_wine">
+      <%= image_tag wine.wine_image_url(:thumb).to_s %>
       <%= wine.wine_vintage %>
       <%= wine.wine_type %>
       <div id="overall_rating">

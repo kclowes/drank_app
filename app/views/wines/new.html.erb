@@ -1,6 +1,6 @@
 <h1> Add Wine </h1>
 
-<%= form_for [@user, @collection, @wines] do |f| %>
+<%= form_for [@user, @collection, @wines], :html => {:multipart => true} do |f| %>
   <div id="column1">
     <%= f.label :wine_type, 'Wine Type', class: "form-label" %>
   </div>
@@ -43,6 +43,10 @@
 <div id="column2">
   <%= f.range_field :wine_overall_rating %>
 </div>
+
+  <div id="column2">
+    <%= f.file_field :wine_image %>
+  </div>
 
 <div id="button">
   <%= f.submit :Submit %>

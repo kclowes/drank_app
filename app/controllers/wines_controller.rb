@@ -15,7 +15,8 @@ class WinesController < ApplicationController
                         wine_vintage: params[:wine][:wine_vintage],
                         wine_abv: params[:wine][:wine_abv],
                         wine_overall_rating: params[:wine][:wine_overall_rating],
-                        collection_id: params[:collection_id])
+                        collection_id: params[:collection_id],
+                        wine_image: params[:wine][:wine_image])
     redirect_to user_collection_wines_path
   end
 
@@ -56,6 +57,7 @@ class WinesController < ApplicationController
      wine_body: params[:wine][:wine_body],
      wine_vintage: params[:wine][:wine_vintage],
      wine_abv: params[:wine][:wine_abv],
-     wine_overall_rating: params[:wine][:wine_overall_rating]}
+     wine_overall_rating: params[:wine][:wine_overall_rating],
+     wine_image: params[:wine][:wine_image]}
   end
 end

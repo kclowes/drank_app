@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <title>Drank</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <link href="http://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type='text/css'>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
-
+<div id="wine_image">
+</div>
 <header>
   <a href="/">
     <%= image_tag 'drank_logo.png' %>
   </a>
-
-  <div id="nav_header">
-    <a href="/wines">See All Wines</a>
-    <% if session[:id] %>
-      <a href="/logout">Logout</a>
-    <% end %>
-  </div>
+  <% if session[:id].nil? %>
+    <div id="see_all_wines_link">
+      <a href="/wines">See All Wines</a>
+    </div>
+  <% else %>
+    <ul>
+      <li><a href="/users/<%= session[:id] %>/collections">View My Collections</a></li>
+      <li><a href="/wines">All Users Wines</a></li>
+      <li><a href="/users/<%= session[:id] %>/wines">All My Wines</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  <% end %>
 </header>
 <div id="content_wrapper">
   <%= yield %>

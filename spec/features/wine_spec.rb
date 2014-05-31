@@ -27,6 +27,8 @@ feature 'user can see wines displayed' do
     expect(page).to have_content 'Pinot Grigio'
     expect(page).to have_content '2004'
     expect(page).to have_content '6'
+    click_on 'All My Wines'
+    expect(page).to have_content 'Pinot Grigio'
   end
 
   scenario 'user can update a wine' do

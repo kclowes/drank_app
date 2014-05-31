@@ -1,13 +1,21 @@
-<% @wines.each do |wine| %>
-  <%= wine.wine_type %>
-  <%= wine.wine_fruit_taste %>
-  <%= wine.wine_sweetness %>
-  <%= wine.wine_body %>
-  <%= wine.wine_vintage %>
-  <%= wine.wine_abv %>
-  <%= wine.wine_overall_rating %>
+<h1>All My Wines</h1>
 
-  <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/<%= wine.id %>/edit">Edit this <%= wine.wine_type %></a>
-  <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/<%= wine.id %>">Delete this <%= wine.wine_type %></a>
+<% @user.wines.each do |wine| %>
+  <div id="each_wine">
+    <%= image_tag wine.wine_image_url(:thumb).to_s %>
+    <%= wine.wine_vintage %>
+    <%= wine.wine_type %>
+    <div id="overall_rating">
+      Overall Rating:
+      <%= wine.wine_overall_rating %>
+    </div>
+  </div>
 
+    <div id="edit_link">
+      <a href="/users/<%= session[:id] %>/collections/<%= Wine.find(wine.id).collection_id %>/wines/<%= wine.id %>/edit">Edit this <%= wine.wine_type %></a>
+    </div>
+
+    <div id="delete_link">
+      <a data-method="delete" href="/users/<%= session[:id] %>/collections/<%= Wine.find(wine.id).collection_id %>/wines/<%= wine.id %>">Delete this <%= wine.wine_type %></a>
+    </div>
 <% end %>

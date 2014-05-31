@@ -29,7 +29,7 @@ class WinesController < ApplicationController
   end
 
   def show
-    @wines = Wine.all
+    @user = User.find(session[:id])
   end
 
   def edit

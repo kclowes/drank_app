@@ -2,53 +2,56 @@
 
 <%= form_for [@user, @collection, @wines], :html => {:multipart => true} do |f| %>
   <div id="column1">
-    <%= f.label :wine_type, 'Wine Type', class: "form-label" %>
+    <%= f.label :wine_type, 'Wine Type:', class: "form-label" %>
   </div>
   <div id="column2">
     <%= f.text_field :wine_type %>
   </div>
   <div id="column1">
-    <%= f.label :wine_fruit_taste, 'Wine Fruit Taste', class: "form-label" %>
+    <%= f.label :wine_fruit_taste, 'Wine Fruit Taste:', class: "form-label" %>
   </div>
   <div id="column2">
     <%= f.text_field :wine_fruit_taste %>
   </div>
   <div id="column1">
-    <%= f.label :wine_sweetness, 'Wine Sweetness (On a scale from 1-10, where 10 is very sweet)', class: "form-label" %>
+    <%= f.label :wine_sweetness, 'Wine Sweetness (On a scale from 1-10, where 10 is very sweet):', class: "form-label" %>
   </div>
   <div id="column2">
     <%= f.range_field :wine_sweetness %>
   </div>
   <div id="column1">
-    <%= f.label :wine_body, 'Wine Body: (Light-Heavy)', class: "form-label" %>
+    <%= f.label :wine_body, 'Wine Body (Light-Heavy):', class: "form-label" %>
   </div>
   <div id="column2">
     <%= f.range_field :wine_body, in: %w{'Light', 'Medium', 'Heavy'} %>
-</div>
-<div id="column1">
-  <%= f.label :wine_vintage, 'Wine Vintage', class: "form-label" %>
-</div>
-<div id="column2">
-  <%= f.number_field :wine_vintage %>
-</div>
-<div id="column1">
-  <%= f.label :wine_abv, 'Wine ABV', class: "form-label" %>
-</div>
-<div id="column2">
-  <%= f.text_field :wine_abv %>
-</div>
-<div id="column1">
-  <%= f.label :wine_overall_rating, 'Wine Overall Rating (Scale of 1-100)', class: "form-label" %>
-</div>
-<div id="column2">
-  <%= f.range_field :wine_overall_rating %>
-</div>
+  </div>
+  <div id="column1">
+    <%= f.label :wine_vintage, 'Wine Vintage:', class: "form-label" %>
+  </div>
+  <div id="column2">
+    <%= f.number_field :wine_vintage %>
+  </div>
+  <div id="column1">
+    <%= f.label :wine_abv, 'Wine ABV:', class: "form-label" %>
+  </div>
+  <div id="column2">
+    <%= f.text_field :wine_abv %>
+  </div>
+  <div id="column1">
+    <%= f.label :wine_overall_rating, 'Wine Overall Rating (Scale of 1-100):', class: "form-label" %>
+  </div>
+  <div id="column2">
+    <%= f.range_field :wine_overall_rating %>
+  </div>
+  <div id="column1">
+    <%= f.label :wine_image, 'Wine Label Image:', class: "form-label" %>
+  </div>
 
   <div id="column2">
     <%= f.file_field :wine_image %>
   </div>
 
-<div id="button">
-  <%= f.submit :Submit %>
-</div>
+  <div id="button">
+    <%= f.submit :Submit %>
+  </div>
 <% end %>

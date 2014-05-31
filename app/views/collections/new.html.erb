@@ -1,10 +1,14 @@
 <h1>New Collection</h1>
 
 <%= form_for [@users, @collections] do |f| %>
+  <div id="new_email">
+    <%= f.label :collection_name %>
+  </div>
+  <div id="new_password">
+    <%= f.text_field :collection_name %>
+  </div>
 
-  <%= f.label :collection_name %>
-  <%= f.text_field :collection_name %>
-
-  <%= f.submit "Add Collection" %>
-
+  <div id="new_register_button">
+    <%= f.submit "Add Collection" %>
+  </div>
 <% end %>

@@ -35,8 +35,10 @@
   <div id="add-wine-link">
     <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/new">Add Wine</a>
   </div>
-
-  <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>">Delete Collection</a>
+  <div id="add-wine-link">
+    <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>">Delete
+      Collection</a>
+  </div>
 
 <% end %>
 

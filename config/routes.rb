@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'users/:user_id/wines', to: 'wines#show'
   get '/wines', to: 'wines#index'
   get '/sessions', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'

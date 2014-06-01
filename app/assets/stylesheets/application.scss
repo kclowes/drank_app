@@ -28,8 +28,14 @@ body, html {
 }
 
 h1 {
+  padding: 1%;
+  background-color: #FFFEDF;
+  color: black;
   text-align: center;
-  color: #FFFEDF;
+  -webkit-border-top-left-radius: 70px;
+  -webkit-border-bottom-right-radius: 70px;
+  -moz-border-radius-topleft: 70px;
+  -moz-border-radius-bottomright: 70px;
 }
 
 body {
@@ -41,14 +47,45 @@ h3 {
   padding: 2%;
 }
 
-h1, #each_wine, #add-wine-link {
+#each_wine, #delete_collection_link {
   padding: 1%;
   background-color: #FFFEDF;
   color: black;
-  -webkit-border-top-left-radius: 70px;
-  -webkit-border-bottom-right-radius: 70px;
-  -moz-border-radius-topleft: 70px;
-  -moz-border-radius-bottomright: 70px;
+  -webkit-border-top-right-radius: 70px;
+  -webkit-border-bottom-left-radius: 70px;
+  -moz-border-radius-topright: 70px;
+  -moz-border-radius-bottomleft: 70px;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+#add-wine-link {
+  padding: 1%;
+  background-color: #FFFEDF;
+  height: 100px;
+  width: 100px;
+  border-radius: 90px;
+  margin: auto;
+  padding-top: 5%;
+  font-size: 5em;
+  a {
+    text-decoration: none;
+  }
+}
+
+#add-wine-link:hover {
+  padding: 1%;
+  background-color: #692E50;
+  height: 100px;
+  width: 100px;
+  border-radius: 90px;
+  margin: auto;
+  padding-top: 5%;
+  font-size: 5em;
+  a {
+    text-decoration: none;
+    color: #FFFEDF;
+  }
 }
 
 #each_wine {
@@ -105,13 +142,40 @@ footer {
   margin-bottom: 0;
   padding-bottom: 1%;
   position: relative;
+  -webkit-border-top-right-radius: 70px;
+  -webkit-border-bottom-left-radius: 70px;
+  -moz-border-radius-topright: 70px;
+  -moz-border-radius-bottomleft: 70px;
 }
 
 /*wine index page*/
 #add-wine-link {
-  margin-top: 5%;
   padding: 1%;
+  background-color: #FFFEDF;
+  height: 90px;
+  width: 90px;
+  border-radius: 80px;
+  margin: 1% auto;
+  font-size: 5em;
   text-align: center;
+  a {
+    text-decoration: none;
+  }
+}
+
+#add-wine-link:hover {
+  padding: 1%;
+  background-color: #692E50;
+  height: 90px;
+  width: 90px;
+  border-radius: 80px;
+  margin: 1% auto;
+  font-size: 5em;
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: #FFFEDF;
+  }
 }
 
 #overall_rating {
@@ -162,7 +226,7 @@ footer {
 //navbar
 li {
   display: inline;
-  background-color: #DFBA69;
+  background-color: #5D7E62;
   color: #FFFEDF;
   font-size: 1.85em;
   text-align: center;
@@ -191,7 +255,7 @@ ul {
   -webkit-border-bottom-right-radius: 70px;
   -moz-border-radius-topleft: 70px;
   -moz-border-radius-bottomright: 70px;
-  background-color:#DFBA69;
+  background-color: #9AA68B;
   font-size: 1.25em;
   a {
     color: white;
@@ -202,7 +266,7 @@ ul {
 //collection index
 #each_collection {
   display: inline-flex;
-  background-color: #5A2E2E;
+  background-color: #692E50;
   color: #FFFEDF;
   height: 180px;
   width: 180px;
@@ -214,6 +278,43 @@ ul {
   margin-top: 2%;
   a {
     color: white;
+    text-decoration: none;
+    margin: auto;
+  }
+}
+
+#add-collection-link {
+  display: inline-flex;
+  background-color: #692E50;
+  color: #FFFEDF;
+  height: 180px;
+  width: 180px;
+  font-size: 5em;
+  text-align: center;
+  padding: 1% 2%;
+  border-radius: 100px;
+  margin-left: 6%;
+  margin-top: 2%;
+  a {
+    color: white;
+    text-decoration: none;
+    margin: auto;
+  }
+}
+
+#add-collection-link:hover {
+  display: inline-flex;
+  background-color: #FFFEDF;
+  height: 180px;
+  width: 180px;
+  font-size: 5em;
+  text-align: center;
+  padding: 1% 2%;
+  border-radius: 100px;
+  margin-left: 6%;
+  margin-top: 2%;
+  a {
+    color: #692E50;
     text-decoration: none;
     margin: auto;
   }
@@ -260,4 +361,11 @@ ul {
   -moz-border-radius-topleft: 70px;
   -moz-border-radius-bottomlright: 70px;
   padding-top: 2%;
+}
+
+//new collection page
+#collection_collection_name {
+  height: 1.1em;
+  font-size: .75em;
+  margin: auto;
 }

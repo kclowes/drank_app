@@ -10,7 +10,7 @@ feature 'collections' do
     expect(page).to have_content('Welcome keri@gmail.com')
     click_link 'Wine'
     expect(page).to have_content('My Collections')
-    click_link 'Add New Collection'
+    click_link '+'
     fill_in 'collection[collection_name]', :with => 'Loved it'
     click_on 'Add Collection'
     expect(page).to have_content('Loved it')
@@ -28,12 +28,12 @@ feature 'collections' do
     expect(page).to have_content('Welcome keri@gmail.com')
     click_link 'Wine'
     expect(page).to have_content('My Collections')
-    click_link 'Add New Collection'
+    click_link '+'
     fill_in 'collection[collection_name]', :with => 'Loved it'
     click_on 'Add Collection'
     expect(page).to have_content('Loved it')
     click_link 'Loved it'
-    click_on 'Add Wine'
+    click_on '+'
     fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
     fill_in 'wine[wine_sweetness]', :with => '5'

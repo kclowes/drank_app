@@ -1,14 +1,16 @@
 <h1>New Collection</h1>
 
 <%= form_for [@users, @collections] do |f| %>
-  <div id="new_email">
-    <%= f.label :collection_name %>
-  </div>
-  <div id="new_password">
-    <%= f.text_field :collection_name %>
-  </div>
+  <div id="new-user-form">
+    <div id="new_email">
+      <%= f.label :collection_name, 'Collection Name:' %>
+    </div>
+    <div id="new_password">
+      <%= f.text_field :collection_name, :placeholder => 'Do not leave blank' %>
+    </div>
 
-  <div id="new_register_button">
-    <%= f.submit "Add Collection" %>
+    <div id="new_register_button">
+      <%= f.submit "Add Collection", class: 'new_wine_submit' %>
+    </div>
   </div>
 <% end %>

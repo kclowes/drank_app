@@ -10,12 +10,12 @@ feature 'user can see wines displayed' do
     expect(page).to have_content('Welcome keri@gmail.com')
     click_on 'Wine'
     expect(page).to have_content('My Collections')
-    click_on 'Add New Collection'
+    click_on '+'
     fill_in 'collection[collection_name]', :with => 'Loved it'
     click_on 'Add Collection'
     expect(page).to have_content('Loved it')
     click_on 'Loved it'
-    click_on 'Add Wine'
+    click_on '+'
     fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
     fill_in 'wine[wine_sweetness]', :with => '5'
@@ -40,12 +40,12 @@ feature 'user can see wines displayed' do
     expect(page).to have_content('Welcome keri@gmail.com')
     click_on 'Wine'
     expect(page).to have_content('My Collections')
-    click_on 'Add New Collection'
+    click_on '+'
     fill_in 'collection[collection_name]', :with => 'Loved it'
     click_on 'Add Collection'
     expect(page).to have_content('Loved it')
     click_on 'Loved it'
-    click_on 'Add Wine'
+    click_on '+'
     fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
     fill_in 'wine[wine_sweetness]', :with => '5'
@@ -69,12 +69,12 @@ feature 'user can see wines displayed' do
     expect(page).to have_content('Welcome keri@gmail.com')
     click_on 'Wine'
     expect(page).to have_content('My Collections')
-    click_on 'Add New Collection'
+    click_on '+'
     fill_in 'collection[collection_name]', :with => 'Loved it'
     click_on 'Add Collection'
     expect(page).to have_content('Loved it')
     click_on 'Loved it'
-    click_on 'Add Wine'
+    click_on '+'
     fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
     fill_in 'wine[wine_sweetness]', :with => '5'

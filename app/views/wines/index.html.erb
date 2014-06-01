@@ -13,6 +13,9 @@
   <% end %>
 <% else %>
   <h1><%= @collection.collection_name %></h1>
+  <div id="add-wine-link">
+      <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/new">+</a>
+  </div>
   <% @collection.wines.each do |wine| %>
     <div id="each_wine">
       <%= image_tag wine.wine_image_url(:thumb).to_s, class: 'placeholder' %>
@@ -32,10 +35,7 @@
       </div>
     </div>
   <% end %>
-  <div id="add-wine-link">
-    <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/new">Add Wine</a>
-  </div>
-  <div id="add-wine-link">
+  <div id="delete_collection_link">
     <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>">Delete
       Collection</a>
   </div>

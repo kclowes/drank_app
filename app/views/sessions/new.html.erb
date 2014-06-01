@@ -1,25 +1,25 @@
 <h1>Login</h1>
 
 <%= form_tag url: sessions_path do %>
+  <div id="new-session-form">
+    <% if @errors.present? %>
+      <div id="errors">
+        <%= @errors %>
+      </div>
+    <% end %>
 
-  <% if @errors.present? %>
-    <div id="errors">
-      <%= @errors %>
+    <div id="exist_email">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
     </div>
-  <% end %>
 
-  <div id="exist_email">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+    <div id="exist_password">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+
+    <div id="login_button">
+      <%= button_tag :login %>
+    </div>
   </div>
-
-  <div id="exist_password">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-
-  <div id="login_button">
-    <%= button_tag :login %>
-  </div>
-
 <% end %>

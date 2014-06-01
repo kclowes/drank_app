@@ -14,16 +14,26 @@
  *= require_self
  */
 
+html {
+  background: url(http://farm6.static.flickr.com/5463/9479772083_2653ec9438.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 body, html {
   font-family: 'Raleway', 'sans-serif';
-    background-color: #3E4147;
-    height: 100%;
-    color: #3E4147;
+  height: 100%;
 }
 
 h1 {
   text-align: center;
+  color: #FFFEDF;
+}
+
+body {
+  margin-top: 2%;
 }
 
 h3 {
@@ -32,13 +42,24 @@ h3 {
 }
 
 h1, #each_wine, #add-wine-link {
-  padding: 1%
+  padding: 1%;
+  background-color: #FFFEDF;
+  color: black;
+  -webkit-border-top-left-radius: 70px;
+  -webkit-border-bottom-right-radius: 70px;
+  -moz-border-radius-topleft: 70px;
+  -moz-border-radius-bottomright: 70px;
 }
 
 #each_wine {
   display: inline-block;
-  padding: 1%;
+  padding: 5%;
   width: 20%;
+  height: 375px;
+  vertical-align: top;
+  margin-left: 2%;
+  margin-top: 2%;
+
 }
 
 #edit_link, #delete_link, #overall_rating {
@@ -56,33 +77,34 @@ header {
   padding: 2%;
 }
 
-/*#nav_header {*/
-/*float: right;*/
-/*margin-top: 1%;*/
-/*margin-right: 1%*/
-/*}*/
-
 #content_wrapper {
-  background-color: #FFFEDF;
   position: relative;
   margin: auto;
   width: 960px;
   min-height: 100%;
 }
 
-#button {
-  height: 50px;
-  width: 100px;
+.new_wine_submit {
+  margin: 7% auto;
+  font-size: 1.5em;
+}
+
+.wine_image_submit {
+  margin: 3% 32%;
+  font-size: .75em;
 }
 
 footer {
   background-color: #FFFEDF;
   width: 960px;
   padding-top: 2%;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
   margin-top: 1%;
   text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 1%;
+  position: relative;
 }
 
 /*wine index page*/
@@ -114,20 +136,7 @@ footer {
 #new_email, #new_password {
   display: inline-block;
   font-size: 1.2em;
-  margin-left: 42%;
   padding-top: 3%;
-}
-
-#new_register_button {
-  display: inline-block;
-  margin-left: 50.25%;
-  padding-top: 3%;
-}
-
-button {
-  height: 30px;
-  width: 80px;
-  font-size: 1em;
 }
 
 #errors {
@@ -143,21 +152,18 @@ button {
 #exist_email, #exist_password {
   display: inline-block;
   font-size: 1.2em;
-  margin-left: 42%;
   padding-top: 3%;
 }
 
-#login_button {
-  margin-left: 47.25%;
+#login_button, #new_register_button {
   padding: 3%;
 }
 
 //navbar
-
 li {
   display: inline;
   background-color: #DFBA69;
-  color: white;
+  color: #FFFEDF;
   font-size: 1.85em;
   text-align: center;
   padding: 0 2%;
@@ -180,25 +186,78 @@ ul {
 
 #see_all_wines_link {
   float: right;
-  padding: 1%;
-
-}
-
-//collection index
-#each_collection {
-  display: inline-block;
-  background-color: #DFBA69;
-  color: white;
-  font-size: 1.5em;
-  text-align: center;
-  padding: 1% 2%;
-  -webkit-border-top-right-radius: 70px;
-  -webkit-border-bottom-left-radius: 70px;
-  -moz-border-radius-topright: 70px;
-  -moz-border-radius-bottomleft: 70px;
+  padding: 1% 3%;
+  -webkit-border-top-left-radius: 70px;
+  -webkit-border-bottom-right-radius: 70px;
+  -moz-border-radius-topleft: 70px;
+  -moz-border-radius-bottomright: 70px;
+  background-color:#DFBA69;
+  font-size: 1.25em;
   a {
     color: white;
     text-decoration: none;
   }
 }
 
+//collection index
+#each_collection {
+  display: inline-flex;
+  background-color: #5A2E2E;
+  color: #FFFEDF;
+  height: 180px;
+  width: 180px;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 1% 2%;
+  border-radius: 100px;
+  margin-left: 6%;
+  margin-top: 2%;
+  a {
+    color: white;
+    text-decoration: none;
+    margin: auto;
+  }
+}
+
+//add and edit wine page
+#add-wine-page, #welcome_page_p {
+  height: auto;
+  width: 600px;
+  background-color: #FFFEDF;
+  font-size: 1.5em;
+  margin: auto;
+  text-align: center;
+  -webkit-border-top-left-radius: 70px;
+  -webkit-border-bottom-right-radius: 70px;
+  -moz-border-radius-topleft: 70px;
+  -moz-border-radius-bottomlright: 70px;
+  padding-top: 2%;
+}
+
+#wine_wine_type, #wine_wine_sweetness, #wine_wine_vintage, #wine_wine_abv {
+  height: 1.1em;
+  font-size: .75em;
+  margin: auto;
+}
+
+#wine_wine_fruit_taste {
+  height: 4em;
+  width: 300px;
+  font-size: .75em;
+  margin: auto;
+  padding: 0;
+}
+
+#new-user-form, #new-session-form {
+  height: auto;
+  width: 600px;
+  background-color: #FFFEDF;
+  font-size: 1.5em;
+  margin: auto;
+  text-align: center;
+  -webkit-border-top-left-radius: 70px;
+  -webkit-border-bottom-right-radius: 70px;
+  -moz-border-radius-topleft: 70px;
+  -moz-border-radius-bottomlright: 70px;
+  padding-top: 2%;
+}

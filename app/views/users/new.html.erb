@@ -1,26 +1,27 @@
 <h1>Register</h1>
 
 <%= form_for @users do |f| %>
-
-  <% if @users.errors.present? %>
-    <% @users.errors.full_messages.each do |message| %>
-      <div id="errors">
-      <%= message %>
-      </div>
+  <div id="new-user-form">
+    <% if @users.errors.present? %>
+      <% @users.errors.full_messages.each do |message| %>
+        <div id="errors">
+          <%= message %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <div id="new_email">
-    <%= f.label :email, 'Email Address' %>
-    <%= f.text_field :email %>
-  </div>
+    <div id="new_email">
+      <%= f.label :email, 'Email Address' %>
+      <%= f.text_field :email %>
+    </div>
 
-  <div id="new_password">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+    <div id="new_password">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
 
-  <div id="new_register_button">
-    <%= f.button :register %>
+    <div id="new_register_button">
+      <%= f.button :register %>
+    </div>
   </div>
 <% end %>

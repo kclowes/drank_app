@@ -14,7 +14,13 @@
     </div>
   <% end %>
 <% else %>
-  <h1><%= @collection.collection_name %></h1>
+  <h1>
+    <div id="edit_collection_link">
+      <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/edit">Edit</a>
+    </div>
+    <%= @collection.collection_name %>
+  </h1>
+
   <div id="add-wine-link">
     <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/new">+</a>
   </div>
@@ -39,10 +45,12 @@
       </div>
     </div>
   <% end %>
+
   <div id="delete_collection_link">
     <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>">Delete
       Collection</a>
   </div>
+
 
 <% end %>
 

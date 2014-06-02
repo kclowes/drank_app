@@ -45,4 +45,24 @@ feature 'collections' do
     expect(page).to have_content('Loved it')
     expect(page).to have_content('Pinot Grigio')
   end
+
+  scenario 'user can edit the name of the collection' do
+    visit '/'
+    within ('header') { click_on 'Register' }
+    fill_in 'user[email]', :with => 'keri@gmail.com'
+    fill_in 'user[password]', :with => 'password'
+    click_on 'register'
+    expect(page).to have_content('Welcome keri@gmail.com')
+    click_link 'Wine'
+    expect(page).to have_content('My Collections')
+    click_link '+'
+    fill_in 'collection[collection_name]', :with => 'Loved it'
+    click_on 'Add Collection'
+    expect(page).to have_content('Loved it')
+    click_link 'Loved it'
+    click_on 'Edit'
+    fill_in 'collection[collection_name]', :with => 'It was okay'
+    click_on 'Edit Collection'
+    expect(page).to have_content('It was okay')
+  end
 end

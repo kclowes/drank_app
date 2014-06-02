@@ -12,15 +12,16 @@ class UsersController < ApplicationController
     else
       render 'users/new'
     end
+  end
 
-    def index
-      id = session[:id]
-      @user = User.find(id)
-    end
 
-    def logout
-      session.clear
-      redirect_to '/about'
-    end
+  def index
+    id = session[:id]
+    @user = User.find(id)
+  end
+
+  def logout
+    session.clear
+    redirect_to '/about'
   end
 end

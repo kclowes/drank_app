@@ -23,6 +23,17 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def edit
+    @collection = Collection.find(params[:id])
+    @user = User.find(params[:user_id])
+  end
+  
+  def update
+    collection = Collection.find(params[:id])
+    collection.update(:id => params[:id], :collection_name => params[:collection][:collection_name])
+    redirect_to user_collections_path
+  end
+
   def show
     @collection = Collection.find(params[:id])
     @user = User.find(session[:id])

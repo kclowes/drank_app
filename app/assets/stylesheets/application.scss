@@ -238,7 +238,7 @@ footer {
 //navbar
 #nav-bar {
   ul {
-      margin: auto;
+    margin: auto;
   }
   li {
     display: inline;
@@ -382,7 +382,7 @@ footer {
   padding-top: 2%;
 }
 
-//new collection page
+//new + edit collection page
 #collection_collection_name {
   height: 1.1em;
   font-size: .75em;
@@ -393,6 +393,16 @@ footer {
   height: 50px;
   font-size: 20em;
   margin: 5%;
+}
+
+h1 {
+  #edit_collection_link {
+    display:inline;
+    padding: 0;
+    margin: 0;
+    float: right;
+    font-size: .35em;
+  }
 }
 
 //about page
@@ -407,24 +417,23 @@ footer {
     height: auto;
     width: 800px;
     background-color: #FFFEDF;
-    font-size: 1.5em;
+    font-size: 1.25em;
     padding-left: 4%;
   }
   h2 {
-    font-size: 2em;
+    font-size: 2.25em;
     text-align: center;
-  }
-  h3 {
-    font-size: 1.5em
+    text-decoration: underline;
   }
   h4 {
-    font-size: 1.25em;
+    font-size: 2em;
     padding-left: 2%;
   }
   li {
     width: 750px;
     padding: 2%;
     margin: auto 4%;
+    font-size: 1.2em;
   }
   #cheers-p {
     text-align: center;

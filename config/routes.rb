@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get '/sessions', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'users#logout'
+  get '/about', to: 'welcome#about'
 end

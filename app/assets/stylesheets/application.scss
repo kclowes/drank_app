@@ -36,6 +36,7 @@ h1 {
   -webkit-border-bottom-right-radius: 70px;
   -moz-border-radius-topleft: 70px;
   -moz-border-radius-bottomright: 70px;
+  font-size: 2.5em;
 }
 
 body {
@@ -224,28 +225,28 @@ footer {
 }
 
 //navbar
-li {
-  display: inline;
-  background-color: #5D7E62;
-  color: #FFFEDF;
-  font-size: 1.85em;
-  text-align: center;
-  padding: 0 2%;
-  width: 33%;
-  -webkit-border-top-left-radius: 70px;
-  -webkit-border-bottom-right-radius: 70px;
-  -moz-border-radius-topleft: 70px;
-  -moz-border-radius-bottomright: 70px;
-  a {
-    color: white;
-    text-decoration: none;
+#nav-bar {
+  li {
+    display: inline;
+    background-color: #5D7E62;
+    color: #FFFEDF;
+    font-size: 1.9em;
+    text-align: center;
+    padding: 0 4%;
+    -webkit-border-top-left-radius: 70px;
+    -webkit-border-bottom-right-radius: 70px;
+    -moz-border-radius-topleft: 70px;
+    -moz-border-radius-bottomright: 70px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
 }
 
 ul {
-  margin: 0;
-  padding: 0;
-  width: 960px;
+  margin: auto;
 }
 
 #see_all_wines_link {
@@ -326,13 +327,17 @@ ul {
   width: 600px;
   background-color: #FFFEDF;
   font-size: 1.5em;
-  margin: auto;
+  margin: 2% auto;
   text-align: center;
   -webkit-border-top-left-radius: 70px;
   -webkit-border-bottom-right-radius: 70px;
   -moz-border-radius-topleft: 70px;
   -moz-border-radius-bottomlright: 70px;
   padding-top: 2%;
+}
+
+#column2 {
+  margin-bottom: 4%;
 }
 
 #wine_wine_type, #wine_wine_sweetness, #wine_wine_vintage, #wine_wine_abv {
@@ -368,4 +373,44 @@ ul {
   height: 1.1em;
   font-size: .75em;
   margin: auto;
+}
+
+.new_collection_submit {
+  height: 50px;
+  font-size: 20em;
+  margin: 5%;
+}
+
+//about page
+#about-page {
+  height: auto;
+  width: 850px;
+  background-color: #FFFEDF;
+  margin: auto;
+  padding-top: 2%;
+  p {
+    height: auto;
+    width: 800px;
+    background-color: #FFFEDF;
+    font-size: 1.5em;
+    padding-left: 4%;
+  }
+  h2 {
+    font-size: 2em;
+    text-align: center;
+  }
+  h3 {
+    font-size: 1.5em
+  }
+  h4 {
+    font-size: 1.25em;
+    padding-left: 2%;
+  }
+  li {
+    width: 750px;
+    padding: 2%;
+  }
+  #cheers-p {
+    text-align: center;
+  }
 }

@@ -28,7 +28,7 @@ feature 'Login/logout/register' do
     fill_in 'email', :with => 'keri@gmail.com'
     fill_in 'password', :with => 'password'
     click_on 'login'
-    expect(page).to have_content('Welcome keri@gmail.com')
+    expect(page).to have_content('Wine Tasting Crash Course')
   end
 
   scenario 'user can logout' do
@@ -59,5 +59,15 @@ feature 'Login/logout/register' do
     fill_in 'password', :with => ''
     click_on 'login'
     expect(page).to have_content("Email/password combination invalid")
+  end
+
+  scenario 'user can see an about page' do
+    visit '/'
+    click_on 'Register'
+    fill_in 'user[email]', :with => 'keri@gmail.com'
+    fill_in 'user[password]', :with => 'password'
+    click_on 'register'
+    click_on 'Wine 101'
+    expect(page).to have_content 'Wine Tasting Crash Course'
   end
 end

@@ -18,7 +18,8 @@ class CollectionsController < ApplicationController
     if @collection.save
       redirect_to user_collections_path
     else
-      render new_user_collection_path
+      @error = 'Please Fill in the Collection Name'
+      render '/users/:user_id/collections/:collection_id/new'
     end
   end
 

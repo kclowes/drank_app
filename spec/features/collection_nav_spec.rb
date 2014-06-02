@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'collections' do
   scenario 'user can make a new wine and it will show up on their collection page' do
     visit '/'
-    click_on 'Register'
+    within ('header') { click_on 'Register' }
     fill_in 'user[email]', :with => 'keri@gmail.com'
     fill_in 'user[password]', :with => 'password'
     click_on 'register'
@@ -21,7 +21,7 @@ feature 'collections' do
 
   scenario 'wines can be displayed in their collection' do
     visit '/'
-    click_on 'Register'
+    within ('header') { click_on 'Register' }
     fill_in 'user[email]', :with => 'keri@gmail.com'
     fill_in 'user[password]', :with => 'password'
     click_on 'register'

@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'user can see wines displayed' do
   scenario 'user can enter a wine and it will be saved in the database' do
     visit '/'
-    click_on 'Register'
+    within ('header') { click_on 'Register' }
     fill_in 'user[email]', :with => 'keri@gmail.com'
     fill_in 'user[password]', :with => 'password'
     click_on 'register'
@@ -33,7 +33,7 @@ feature 'user can see wines displayed' do
 
   scenario 'user can update a wine' do
     visit '/'
-    click_on 'Register'
+    within ('header') { click_on 'Register' }
     fill_in 'user[email]', :with => 'keri@gmail.com'
     fill_in 'user[password]', :with => 'password'
     click_on 'register'
@@ -62,7 +62,7 @@ feature 'user can see wines displayed' do
 
   scenario 'user can delete a wine' do
     visit '/'
-    click_on 'Register'
+    within ('header') { click_on 'Register' }
     fill_in 'user[email]', :with => 'keri@gmail.com'
     fill_in 'user[password]', :with => 'password'
     click_on 'register'

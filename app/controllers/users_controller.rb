@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     def logout
       session.clear
-      redirect_to '/'
+      redirect_to '/about'
     end
   end
 end

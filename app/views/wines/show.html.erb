@@ -2,7 +2,9 @@
 
 <% @user.wines.each do |wine| %>
   <div id="each_wine">
-    <%= image_tag wine.wine_image_url(:thumb).to_s %>
+    <div id="placeholder">
+      <%= image_tag wine.wine_image_url(:thumb).to_s %>
+    </div>
     <%= wine.wine_vintage %>
     <%= wine.wine_type %>
     <div id="overall_rating">

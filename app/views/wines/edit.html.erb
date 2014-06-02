@@ -36,6 +36,12 @@
       <%= f.file_field :wine_image, class: 'wine_image_submit' %>
     </div>
 
+    <div id="column2">
+      <%= f.label :remove_wine_image, 'Remove Label Image:', class: "form-label" %>
+      <%= f.check_box :remove_wine_image %>
+    </div>
+
+
     <div id="column1">
       <%= f.label :wine_fruit_taste, 'Wine Tasting Notes:', class: "form-label tasting-notes" %>
     </div>

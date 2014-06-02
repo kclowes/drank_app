@@ -16,7 +16,7 @@ feature 'user can see wines displayed' do
     expect(page).to have_content('Loved it')
     click_on 'Loved it'
     click_on '+'
-    fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
+    select 'Pinot Grigio', :from => 'wine[wine_type]'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
     fill_in 'wine[wine_sweetness]', :with => '5'
     fill_in 'wine[wine_body]', :with => 'full'
@@ -46,7 +46,7 @@ feature 'user can see wines displayed' do
     expect(page).to have_content('Loved it')
     click_on 'Loved it'
     click_on '+'
-    fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
+    select 'Pinot Grigio', :from => 'wine[wine_type]'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
     fill_in 'wine[wine_sweetness]', :with => '5'
     fill_in 'wine[wine_body]', :with => 'full'
@@ -55,7 +55,7 @@ feature 'user can see wines displayed' do
     fill_in 'wine[wine_overall_rating]', :with => '6'
     click_on 'Submit'
     click_on 'Edit this Pinot Grigio'
-    fill_in 'wine[wine_type]', :with => 'Pinot Noir'
+    select 'Pinot Noir', :from => 'wine[wine_type]'
     click_on 'Submit'
     expect(page).to have_content('Pinot Noir')
   end
@@ -75,7 +75,7 @@ feature 'user can see wines displayed' do
     expect(page).to have_content('Loved it')
     click_on 'Loved it'
     click_on '+'
-    fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
+    select 'Pinot Grigio', :from => 'wine[wine_type]'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
     fill_in 'wine[wine_sweetness]', :with => '5'
     fill_in 'wine[wine_body]', :with => 'full'

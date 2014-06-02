@@ -34,7 +34,7 @@ feature 'collections' do
     expect(page).to have_content('Loved it')
     click_link 'Loved it'
     click_on '+'
-    fill_in 'wine[wine_type]', :with => 'Pinot Grigio'
+    select 'Pinot Grigio', :from => 'wine[wine_type]'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
     fill_in 'wine[wine_sweetness]', :with => '5'
     fill_in 'wine[wine_body]', :with => 'full'

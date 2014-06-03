@@ -119,6 +119,10 @@ header {
   width: 960px;
   background: #FFFEDF;
   margin: auto;
+  p {
+    float:right;
+    padding-right: 1%;
+  }
 }
 
 #welcome_page_p,
@@ -347,7 +351,7 @@ footer {
   -webkit-border-top-left-radius: 70px;
   -webkit-border-bottom-right-radius: 70px;
   -moz-border-radius-topleft: 70px;
-  -moz-border-radius-bottomlright: 70px;
+  -moz-border-radius-bottomright: 70px;
   padding-top: 2%;
 }
 

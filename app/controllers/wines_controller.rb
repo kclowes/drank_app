@@ -1,9 +1,11 @@
 class WinesController < ApplicationController
 
   def new
+    if session[:id]
+      @user = User.find(params[:user_id])
+    end
     @wines = Wine.new
     @collection = Collection.find(params[:collection_id])
-    @user = User.find(params[:user_id])
   end
 
   def create
@@ -25,6 +27,7 @@ class WinesController < ApplicationController
     if session[:id].nil?
       @wines = Wine.all
     else
+      @user = User.find(params[:user_id])
       @collection = Collection.find(params[:collection_id])
     end
   end

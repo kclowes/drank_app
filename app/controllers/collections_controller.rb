@@ -4,11 +4,16 @@ class CollectionsController < ApplicationController
 
   def index
     id = session[:id]
-    @user = User.find(id)
+    if session[:id]
+      @user = User.find(id)
+    end
     @collection = Collection.all
   end
 
   def new
+    if session[:id]
+      @user = User.find(session[:id])
+    end
     @users = User.find(session[:id])
     @collections = Collection.new
   end
@@ -27,7 +32,7 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
     @user = User.find(params[:user_id])
   end
-  
+
   def update
     collection = Collection.find(params[:id])
     collection.update(:id => params[:id], :collection_name => params[:collection][:collection_name])

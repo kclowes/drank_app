@@ -35,6 +35,7 @@ feature 'collections' do
     click_link 'Loved it'
     click_on '+'
     select 'Pinot Grigio', :from => 'wine[wine_type]'
+    fill_in 'wine[wine_name]', :with => 'Fat bastard'
     fill_in 'wine[wine_fruit_taste]', :with => 'peach'
     fill_in 'wine[wine_sweetness]', :with => '5'
     fill_in 'wine[wine_body]', :with => 'full'

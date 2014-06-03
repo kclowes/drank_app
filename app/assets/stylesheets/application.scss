@@ -111,7 +111,7 @@ h3 {
   }
 }
 
-#edit_link, #delete_link, #overall_rating {
+#edit_link, #delete_link {
   padding: 1%;
 }
 
@@ -190,8 +190,9 @@ footer {
   }
 }
 
-#overall_rating {
+#overall_rating, #wine_name {
   margin: 1%;
+  padding: 1%;
 }
 
 #edit_link, #delete_link {
@@ -397,7 +398,7 @@ footer {
 
 h1 {
   #edit_collection_link {
-    display:inline;
+    display: inline;
     padding: 0;
     margin: 0;
     float: right;

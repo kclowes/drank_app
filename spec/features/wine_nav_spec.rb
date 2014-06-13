@@ -14,7 +14,17 @@ feature 'user can see wines displayed' do
     fill_in 'collection[collection_name]', :with => 'Loved it'
     click_on 'Add Collection'
     expect(page).to have_content('Loved it')
-    create_wine
+    click_on 'Loved it'
+    click_on '+'
+    select 'Pinot Grigio', :from => 'wine[wine_type]'
+    fill_in 'wine[wine_name]', :with => 'Fat bastard'
+    fill_in 'wine[wine_fruit_taste]', :with => 'peach'
+    fill_in 'wine[wine_sweetness]', :with => '5'
+    fill_in 'wine[wine_body]', :with => 'full'
+    fill_in 'wine[wine_vintage]', :with => '2004'
+    fill_in 'wine[wine_abv]', :with => '13%'
+    fill_in 'wine[wine_overall_rating]', :with => '6'
+    click_on 'Submit'
     expect(page).to have_content 'Pinot Grigio'
     expect(page).to have_content 'Fat bastard'
     expect(page).to have_content '2004'
@@ -36,7 +46,17 @@ feature 'user can see wines displayed' do
     fill_in 'collection[collection_name]', :with => 'Loved it'
     click_on 'Add Collection'
     expect(page).to have_content('Loved it')
-    create_wine
+    click_on 'Loved it'
+    click_on '+'
+    select 'Pinot Grigio', :from => 'wine[wine_type]'
+    fill_in 'wine[wine_name]', :with => 'Fat bastard'
+    fill_in 'wine[wine_fruit_taste]', :with => 'peach'
+    fill_in 'wine[wine_sweetness]', :with => '5'
+    fill_in 'wine[wine_body]', :with => 'full'
+    fill_in 'wine[wine_vintage]', :with => '2004'
+    fill_in 'wine[wine_abv]', :with => '13%'
+    fill_in 'wine[wine_overall_rating]', :with => '6'
+    click_on 'Submit'
     click_on 'Edit this Pinot Grigio'
     select 'Pinot Noir', :from => 'wine[wine_type]'
     click_on 'Submit'
@@ -56,7 +76,17 @@ feature 'user can see wines displayed' do
     fill_in 'collection[collection_name]', :with => 'Loved it'
     click_on 'Add Collection'
     expect(page).to have_content('Loved it')
-    create_wine
+    click_on 'Loved it'
+    click_on '+'
+    select 'Pinot Grigio', :from => 'wine[wine_type]'
+    fill_in 'wine[wine_name]', :with => 'Fat bastard'
+    fill_in 'wine[wine_fruit_taste]', :with => 'peach'
+    fill_in 'wine[wine_sweetness]', :with => '5'
+    fill_in 'wine[wine_body]', :with => 'full'
+    fill_in 'wine[wine_vintage]', :with => '2004'
+    fill_in 'wine[wine_abv]', :with => '13%'
+    fill_in 'wine[wine_overall_rating]', :with => '6'
+    click_on 'Submit'
     click_on 'Delete this Pinot Grigio'
     expect(page).to have_no_content('Pinot Grigio')
   end

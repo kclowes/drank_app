@@ -1,16 +1,14 @@
 require 'spec_helper'
 
 feature 'Login/logout/register' do
+  
   scenario 'user can register' do
-    visit '/'
-    within('header') { click_on 'Register'}
-    fill_in 'user[email]', :with => 'keri@gmail.com'
-    fill_in 'user[password]', :with => 'password'
-    within('body') { click_on 'register' }
+    register_user
+
     expect(page).to have_content('Welcome keri@gmail.com')
     click_on 'Logout'
     visit '/'
-    within('header') { click_on 'Register'}
+    within('header') { click_on 'Register' }
     fill_in 'user[email]', :with => 'kristi@gmail.com'
     fill_in 'user[password]', :with => 'password1'
     within('body') { click_on 'register' }
@@ -19,34 +17,29 @@ feature 'Login/logout/register' do
   end
 
   scenario 'user can login' do
-    visit '/'
-    within('header') { click_on 'Register'}
-    fill_in 'user[email]', :with => 'keri@gmail.com'
-    fill_in 'user[password]', :with => 'password'
-    within('body') { click_on 'register' }
+    register_user
+
     click_on 'Logout'
-    visit '/'
-    within('header') { click_on 'Login' }
-    fill_in 'email', :with => 'keri@gmail.com'
-    fill_in 'password', :with => 'password'
-    click_on 'login'
+
+    login_user
+
+
     expect(page).to have_content('You should like the wine you drank.')
   end
 
   scenario 'user can logout' do
-    visit '/'
-    within('header') { click_on 'Register'}
-    fill_in 'user[email]', :with => 'keri@gmail.com'
-    fill_in 'user[password]', :with => 'password'
-    within('body') { click_on 'register'}
-    expect(page).to have_content('Welcome keri@gmail.com')
+    register_user
+
     click_on 'Logout'
-    expect(page).to_not have_content('keri@gmail.com')
+
+    within('header') do
+      expect(page).to_not have_content('keri@gmail.com')
+    end
   end
 
-  scenario 'user cannot register with a blank email or password' do
+  scenario 'user cannot register with a blank email and a blank password' do
     visit '/'
-    within('header') { click_on 'Register'}
+    within('header') { click_on 'Register' }
     fill_in 'user[email]', :with => ''
     fill_in 'user[password]', :with => ''
     within('body') { click_on 'register' }
@@ -54,9 +47,27 @@ feature 'Login/logout/register' do
     expect(page).to have_content("Password can't be blank")
   end
 
+  scenario 'user cannot register with a blank email' do
+    visit '/'
+    within('header') { click_on 'Register' }
+    fill_in 'user[email]', :with => ''
+    fill_in 'user[password]', :with => 'abcde'
+    within('body') { click_on 'register' }
+    expect(page).to have_content("Email can't be blank")
+  end
+
+  scenario 'user cannot register with a blank password' do
+    visit '/'
+    within('header') { click_on 'Register' }
+    fill_in 'user[email]', :with => 'keri@gmail.com'
+    fill_in 'user[password]', :with => ''
+    within('body') { click_on 'register' }
+    expect(page).to have_content("Password can't be blank")
+  end
+
   scenario 'user cannot login with a blank email or password' do
     visit '/'
-    within('header') { click_on 'Login'}
+    within('header') { click_on 'Login' }
     fill_in 'email', :with => ''
     fill_in 'password', :with => ''
     within('body') { click_on 'login' }
@@ -65,7 +76,7 @@ feature 'Login/logout/register' do
 
   scenario 'user can see an about page' do
     visit '/'
-    within('header') { click_on 'Register'}
+    within('header') { click_on 'Register' }
     fill_in 'user[email]', :with => 'keri@gmail.com'
     fill_in 'user[password]', :with => 'password'
     within('body') { click_on 'register' }

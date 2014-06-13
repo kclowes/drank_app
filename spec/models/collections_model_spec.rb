@@ -7,4 +7,9 @@ describe Collection do
     wine = Wine.create!(wine_type: 'Merlot')
     Collection.create!(user_id: user.id, wine_id: wine.id, collection_name: 'Loved it!')
   end
+
+  it 'will not be valid if the name is not present' do
+    collection = Collection.create(collection_name: '')
+    expect(collection).to_not be_valid
+  end
 end

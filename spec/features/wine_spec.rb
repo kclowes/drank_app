@@ -1,64 +1,38 @@
 require 'spec_helper'
 
 feature 'user can see wines displayed' do
-  scenario 'user can enter a wine and it will be saved in the database' do
-    visit '/'
-    within ('header') { click_on 'Register' }
-    fill_in 'user[email]', :with => 'keri@gmail.com'
-    fill_in 'user[password]', :with => 'password'
-    click_on 'register'
-    expect(page).to have_content('Welcome keri@gmail.com')
-    click_on 'Wine'
-    expect(page).to have_content('My Collections')
-    click_on '+'
-    fill_in 'collection[collection_name]', :with => 'Loved it'
-    click_on 'Add Collection'
-    expect(page).to have_content('Loved it')
+
+  before do
+    register_user
+    new_collection
     create_wine
+  end
+
+  scenario 'user can enter a wine and it will be saved in the database' do
+
     expect(page).to have_content 'Pinot Grigio'
     expect(page).to have_content 'Fat bastard'
     expect(page).to have_content '2004'
     expect(page).to have_content '6'
     click_on 'My Wines'
     expect(page).to have_content 'Pinot Grigio'
+
   end
 
   scenario 'user can update a wine' do
-    visit '/'
-    within ('header') { click_on 'Register' }
-    fill_in 'user[email]', :with => 'keri@gmail.com'
-    fill_in 'user[password]', :with => 'password'
-    click_on 'register'
-    expect(page).to have_content('Welcome keri@gmail.com')
-    click_on 'Wine'
-    expect(page).to have_content('My Collections')
-    click_on '+'
-    fill_in 'collection[collection_name]', :with => 'Loved it'
-    click_on 'Add Collection'
-    expect(page).to have_content('Loved it')
-    create_wine
+
     click_on 'Edit this Pinot Grigio'
     select 'Pinot Noir', :from => 'wine[wine_type]'
     click_on 'Submit'
     expect(page).to have_content('Pinot Noir')
+
   end
 
   scenario 'user can delete a wine' do
-    visit '/'
-    within ('header') { click_on 'Register' }
-    fill_in 'user[email]', :with => 'keri@gmail.com'
-    fill_in 'user[password]', :with => 'password'
-    click_on 'register'
-    expect(page).to have_content('Welcome keri@gmail.com')
-    click_on 'Wine'
-    expect(page).to have_content('My Collections')
-    click_on '+'
-    fill_in 'collection[collection_name]', :with => 'Loved it'
-    click_on 'Add Collection'
-    expect(page).to have_content('Loved it')
-    create_wine
+
     click_on 'Delete this Pinot Grigio'
     expect(page).to have_no_content('Pinot Grigio')
+
   end
 
 end

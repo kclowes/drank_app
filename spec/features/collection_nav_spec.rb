@@ -27,4 +27,12 @@ feature 'collections' do
     click_on 'Edit Collection'
     expect(page).to have_content('It was okay')
   end
+
+  scenario 'user cannot leave the collection name blank' do
+    click_on 'My Collections'
+    click_on '+'
+    fill_in 'collection[collection_name]', :with => ''
+    click_on 'Add Collection'
+    expect(page).to have_content('Please enter a collection name')
+  end
 end

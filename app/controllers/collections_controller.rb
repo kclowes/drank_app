@@ -1,11 +1,8 @@
 class CollectionsController < ApplicationController
-  def show
-  end
 
   def index
-    id = session[:id]
     if session[:id]
-      @user = User.find(id)
+      @user = User.find(session[:id])
     end
     @collection = Collection.all
   end
@@ -14,17 +11,17 @@ class CollectionsController < ApplicationController
     if session[:id]
       @user = User.find(session[:id])
     end
-    @users = User.find(session[:id])
-    @collections = Collection.new
+    @collection = Collection.new
   end
 
   def create
-    @collection = Collection.new(:user_id => params['user_id'], :collection_name => params[:collection][:collection_name])
-    if @collection.save
+    user = User.find(params[:user_id])
+    collection = Collection.new(:user_id => user.id, :collection_name => params[:collection][:collection_name])
+    if collection.save
       redirect_to user_collections_path
     else
-      @error = 'Please Fill in the Collection Name'
-      render '/users/:user_id/collections/:collection_id/new'
+      flash[:notice] = 'Please enter a collection name'
+      redirect_to new_user_collection_path
     end
   end
 
@@ -36,7 +33,7 @@ class CollectionsController < ApplicationController
   def update
     collection = Collection.find(params[:id])
     collection.update(:id => params[:id], :collection_name => params[:collection][:collection_name])
-    redirect_to user_collections_path
+    redirect_to user_collection_path
   end
 
   def show

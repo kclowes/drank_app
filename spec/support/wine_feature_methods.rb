@@ -1,4 +1,4 @@
-def create_wine(new_attributes = {})
+def create_wine
   click_on 'Loved it'
   click_on '+'
   select 'Pinot Grigio', :from => 'wine[wine_type]'

@@ -17,24 +17,24 @@
   </a>
   <% if session[:id].nil? %>
     <ul id="welcome-bar">
-      <li id="welcome-bar"><a href="/sessions">Login</a></li>
-      <li id="welcome-bar"><a href="/users/new">Register</a></li>
-      <li id="welcome-bar"><a href="/wines">See All Wines</a></li>
-      <li id="welcome-bar"><a href="/about">Wine 101</a></li>
+      <li id="welcome-bar"><%= link_to 'Login', sessions_path %></li>
+      <li id="welcome-bar"><%= link_to 'Register', new_user_path %></li>
+      <li id="welcome-bar"><%= link_to 'See All Wines', wines_path %></li>
+      <li id="welcome-bar"><%= link_to 'Wine 101', about_path %></li>
     </ul>
   <% else %>
       <p>Signed in as: <%= set_user_by_session.email %></p>
     <ul id="nav-bar">
-      <li id="nav-bar"><a href="/users/<%= session[:id] %>/collections">My Collections</a></li>
-      <li id="nav-bar"><a href="/users/<%= session[:id] %>/wines">My Wines</a></li>
-      <li id="nav-bar"><a href="/about">Wine 101</a></li>
-      <li id="nav-bar"><a href="/logout">Logout</a></li>
+      <li id="nav-bar"><%= link_to 'My Collections', user_collections_path(set_user_by_session) %></li>
+      <li id="nav-bar"><a href="/users/<%= set_user_by_session.id %>/wines">My Wines</a></li>
+      <li id="nav-bar"><%= link_to 'Wine 101', about_path %></li>
+      <li id="nav-bar"><%= link_to 'Logout', logout_path %></li>
     </ul>
   <% end %>
 </header>
 <div id="content_wrapper">
   <%= yield %>
 </div>
-<footer><p>2014</p> Keri Clowes</footer>
+<footer><p>2014</p> Developed + Designed by Keri Clowes</footer>
 </body>
 </html>

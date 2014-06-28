@@ -1,6 +1,7 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, :only => [:show, :update, :destroy]
   before_action :new_collection, :only => [:create]
+  before_action :set_new_collection, :only => [:new]
 
   def index
   end

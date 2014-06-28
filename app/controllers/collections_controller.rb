@@ -22,7 +22,7 @@ class CollectionsController < ApplicationController
 
   def update
     set_collection.update(allowed_parameters)
-    redirect_to user_collection_path
+    redirect_to user_collections_path
   end
 
   def show

@@ -4,7 +4,12 @@
   <h1><%= wine_collection %></h1>
 <% end %>
 
-<a href="/users/<%= set_user.id %>/collections/<%= set_collection.id %>/wines/new">Add Wine</a>
 
-<a data-method="delete" href="/users/<%= set_user.id %>/collections/<%= set_collection.id %>">Delete Collection</a>
 
+<div id="add-wine-link">
+  <%= link_to '+', new_user_collection_wine_path(set_user, set_collection) %>
+</div>
+
+<div id="delete_collection_link">
+  <%= link_to 'Delete Collection', user_collection_path(set_user, set_collection), method: :delete %>
+</div>

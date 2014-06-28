@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:id] = user.id
       redirect_to '/about'
     else
-      @errors = "Email/password combination invalid"
+      flash[:notice] = "Email/password combination invalid"
       render 'sessions/new'
     end
   end

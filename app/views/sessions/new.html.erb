@@ -2,11 +2,7 @@
 
 <%= form_tag url: sessions_path do %>
   <div id="new-session-form">
-    <% if @errors.present? %>
-      <div id="errors">
-        <%= @errors %>
-      </div>
-    <% end %>
+    <%= render 'layouts/flash_notice' %>
 
     <div id="exist_email">
       <%= label_tag :email %>

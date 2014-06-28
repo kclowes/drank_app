@@ -2,9 +2,7 @@
 
 <%= form_for [set_user, set_new_collection] do |f| %>
   <div id="new-user-form">
-    <% if @error.present? %>
-      <%= @error  %>
-    <% end %>
+   <%= render 'layouts/flash_notice' %>
     <div id="new_email">
       <%= f.label :collection_name, 'Collection Name:' %>
     </div>

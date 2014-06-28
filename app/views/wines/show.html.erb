@@ -15,12 +15,10 @@
       <%= wine.wine_overall_rating %>
     </div>
     <div id="edit_link">
-      <a href="/users/<%= session[:id] %>/collections/<%= Wine.find(wine.id).collection_id %>/wines/<%= wine.id %>/edit">Edit
-        this <%= wine.wine_type %></a>
+      <%= link_to "Edit this #{wine.wine_type}", edit_user_collection_wine_path(set_user, wine.collection_id, wine.id) %>
     </div>
     <div id="delete_link">
-      <a data-method="delete" href="/users/<%= session[:id] %>/collections/<%= Wine.find(wine.id).collection_id %>/wines/<%= wine.id %>">Delete
-        this <%= wine.wine_type %></a>
+      <%= link_to "Delete this #{wine.wine_type}", user_collection_wine_path(set_user, wine.collection_id, wine.id) %>
     </div>
   </div>
 <% end %>

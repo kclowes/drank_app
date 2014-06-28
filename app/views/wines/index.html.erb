@@ -19,13 +19,13 @@
 <% else %>
   <h1>
     <div id="edit_collection_link">
-      <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/edit">Edit</a>
+      <%= link_to 'Edit', edit_user_collection_path(set_user, find_collection) %>
     </div>
     <%= find_collection.collection_name %>
   </h1>
 
   <div id="add-wine-link">
-    <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/new">+</a>
+    <%= link_to '+', new_user_collection_wine_path(set_user, find_collection) %>
   </div>
   <% collection_of_wines.each do |wine| %>
     <div id="each_wine">
@@ -42,19 +42,16 @@
         <%= wine.wine_overall_rating %>
       </div>
       <div id="edit_link">
-        <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/<%= wine.id %>/edit">Edit
-          this <%= wine.wine_type %></a>
+        <%= link_to "Edit this #{wine.wine_type}", edit_user_collection_wine_path(set_user, find_collection, wine.id) %>
       </div>
       <div id="delete_link">
-        <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/<%= wine.id %>">Delete
-          this <%= wine.wine_type %></a>
+        <%= link_to "Delete this #{wine.wine_type}", user_collection_wine_path(set_user, find_collection, wine.id), method: :delete %>
       </div>
     </div>
   <% end %>
 
   <div id="delete_collection_link">
-    <a data-method="delete" href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>">Delete
-      Collection</a>
+    <%= link_to 'Delete Collection', user_collection_path(set_user, find_collection), method: :delete %>
   </div>
 
 

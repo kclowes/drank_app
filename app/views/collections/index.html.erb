@@ -1,11 +1,11 @@
 <h1>My Collections</h1>
 
-<% @user.collections.each do |collection| %>
+<% set_collections.each do |collection| %>
   <div id="each_collection">
-    <a href="/users/<%= @user.id %>/collections/<%= collection.id %>/wines"><%= collection.collection_name %></a>
+    <a href="/users/<%= set_user.id %>/collections/<%= collection.id %>/wines"><%= collection.collection_name %></a>
   </div>
 <% end %>
 
 <div id="add-collection-link">
-  <a href="/users/<%= @user.id %>/collections/new">+</a>
+  <a href="/users/<%= set_user.id %>/collections/new">+</a>
 </div>

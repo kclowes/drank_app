@@ -4,8 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @users = User.new(:email => params[:user][:email],
-                      :password => params[:user][:password])
+    @users = User.new(allowed_parameters)
     if @users.save
       session[:id] = @users.id
       redirect_to users_path
@@ -23,5 +22,12 @@ class UsersController < ApplicationController
   def logout
     session.clear
     redirect_to '/about'
+  end
+
+  def allowed_parameters
+    params.require(:user).permit(
+      :email,
+      :password,
+    )
   end
 end

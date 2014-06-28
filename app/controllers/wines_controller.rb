@@ -1,25 +1,16 @@
 class WinesController < ApplicationController
+  # before_action :set_user, :only => [:show,]
+  before_action :find_collection, :only => [:index, :new, :create]
+  before_action :user_wines, :only => [:show]
+  before_action :find_wine, :only => [:destroy, :update, :edit]
+
 
   def new
-    if session[:id]
-      @user = User.find(params[:user_id])
-    end
-    @wines = Wine.new
-    @collection = Collection.find(params[:collection_id])
+    @wine = Wine.new
   end
 
   def create
-    @collection = Collection.find(params[:collection_id])
-    @wine = Wine.create(wine_type: params[:wine][:wine_type],
-                        wine_fruit_taste: params[:wine][:wine_fruit_taste],
-                        wine_sweetness: params[:wine][:wine_sweetness],
-                        wine_body: params[:wine][:wine_body],
-                        wine_vintage: params[:wine][:wine_vintage],
-                        wine_abv: params[:wine][:wine_abv],
-                        wine_overall_rating: params[:wine][:wine_overall_rating],
-                        collection_id: params[:collection_id],
-                        wine_image: params[:wine][:wine_image],
-                        wine_name: params[:wine][:wine_name])
+    new_wine.save
     redirect_to user_collection_wines_path
   end
 
@@ -27,42 +18,68 @@ class WinesController < ApplicationController
     if session[:id].nil?
       @wines = Wine.all
     else
-      @user = User.find(params[:user_id])
-      @collection = Collection.find(params[:collection_id])
+      find_collection
     end
   end
 
   def show
-    @user = User.find(session[:id])
   end
 
   def edit
-    @edited_wine = Wine.find(params[:id])
-    @collection = Collection.find(params[:collection_id])
-    @user = User.find(params[:user_id])
   end
 
   def update
-    wine = Wine.find(params[:id])
-    wine.update(wine_info)
+    find_wine.update(allowed_parameters)
     redirect_to user_collection_wines_path
   end
 
   def destroy
-    wine = Wine.find(params[:id])
-    wine.destroy
+    find_wine.destroy
     redirect_to user_collection_wines_path
   end
 
-  def wine_info
-    {wine_type: params[:wine][:wine_type],
-     wine_fruit_taste: params[:wine][:wine_fruit_taste],
-     wine_sweetness: params[:wine][:wine_sweetness],
-     wine_body: params[:wine][:wine_body],
-     wine_vintage: params[:wine][:wine_vintage],
-     wine_abv: params[:wine][:wine_abv],
-     wine_overall_rating: params[:wine][:wine_overall_rating],
-     wine_image: params[:wine][:wine_image],
-     wine_name: params[:wine][:wine_name]}
+  private
+  helper_method :set_user, :find_collection, :collection_of_wines, :find_wine, :user_wines
+
+  def find_wine
+    Wine.find(params[:id])
   end
+
+  def set_user
+    User.find(params[:user_id])
+  end
+
+  def find_collection
+    set_user.collections.find(params[:collection_id])
+  end
+
+  def new_wine
+    collection_of_wines.build(allowed_parameters)
+  end
+
+  def collection_of_wines
+    find_collection.wines
+  end
+
+  def user_wines
+    set_user.wines
+  end
+
+  def allowed_parameters
+    params.require(:wine).permit(
+      :wine_type,
+      :wine_fruit_taste,
+      :wine_sweetness,
+      :wine_body,
+      :wine_vintage,
+      :wine_abv,
+      :wine_overall_rating,
+      :wine_image,
+      :wine_name,
+      :collection_attributes =>
+        [:collection_id]
+    )
+  end
+
+
 end

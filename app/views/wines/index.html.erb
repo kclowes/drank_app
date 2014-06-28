@@ -21,13 +21,13 @@
     <div id="edit_collection_link">
       <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/edit">Edit</a>
     </div>
-    <%= @collection.collection_name %>
+    <%= find_collection.collection_name %>
   </h1>
 
   <div id="add-wine-link">
     <a href="/users/<%= params[:user_id] %>/collections/<%= params[:collection_id] %>/wines/new">+</a>
   </div>
-  <% @collection.wines.each do |wine| %>
+  <% collection_of_wines.each do |wine| %>
     <div id="each_wine">
       <div id="placeholder">
         <%= image_tag wine.wine_image_url(:thumb).to_s, class: 'placeholder' %>

@@ -14,6 +14,7 @@ feature 'collections' do
   end
 
   scenario 'wines can be displayed in their collection' do
+
     create_wine
 
     expect(page).to have_content('Loved it')

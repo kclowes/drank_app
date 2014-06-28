@@ -1,6 +1,6 @@
 <h1>Edit Collection Name</h1>
 
-<%= form_for [@user, @collection] do |f| %>
+<%= form_for [set_user, set_new_collection] do |f| %>
   <div id="new-user-form">
     <% if @error.present? %>
       <%= @error  %>

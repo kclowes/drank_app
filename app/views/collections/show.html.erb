@@ -1,10 +1,10 @@
-<h1><%= @collection.collection_name %></h1>
+<h1><%= set_collection.collection_name %></h1>
 
-<% @collection.wine_id do |wine_collection| %>
+<% set_collection.wine_id do |wine_collection| %>
   <h1><%= wine_collection %></h1>
 <% end %>
 
-<a href="/users/<%= @user.id %>/collections/<%= @collection.id %>/wines/new">Add Wine</a>
+<a href="/users/<%= set_user.id %>/collections/<%= set_collection.id %>/wines/new">Add Wine</a>
 
-<a data-method="delete" href="/users/<%= @user.id %>/collections/<%= @collection.id %>">Delete Collection</a>
+<a data-method="delete" href="/users/<%= set_user.id %>/collections/<%= set_collection.id %>">Delete Collection</a>
 

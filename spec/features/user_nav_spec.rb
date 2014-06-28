@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Login/logout/register' do
-  
+
   scenario 'user can register' do
     register_user
 

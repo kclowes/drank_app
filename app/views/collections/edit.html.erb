@@ -1,17 +1,3 @@
 <h1>Edit Collection Name</h1>
 
-<%= form_for [set_user, set_collection] do |f| %>
-  <div id="new-user-form">
-   <%= render 'layouts/flash_notice' %>
-    <div id="new_email">
-      <%= f.label :collection_name, 'Collection Name:' %>
-    </div>
-    <div id="new_password">
-      <%= f.text_field :collection_name, :placeholder => 'Do not leave blank' %>
-    </div>
-
-    <div id="new_collection_button">
-      <%= f.submit "Edit Collection", class: 'new_collection_submit' %>
-    </div>
-  </div>
-<% end %>
+<%= render 'layouts/collections_form' %>

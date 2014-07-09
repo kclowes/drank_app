@@ -25,7 +25,7 @@ feature 'collections' do
     click_link 'Loved it'
     click_on 'Edit'
     fill_in 'collection[collection_name]', :with => 'It was okay'
-    click_on 'Edit Collection'
+    click_on 'Submit'
     expect(page).to have_content('It was okay')
     expect(page).to_not have_content('Loved it')
   end
@@ -34,7 +34,7 @@ feature 'collections' do
     click_on 'My Collections'
     click_on '+'
     fill_in 'collection[collection_name]', :with => ''
-    click_on 'Add Collection'
+    click_on 'Submit'
     expect(page).to have_content('Please enter a collection name')
   end
 end

@@ -3,7 +3,7 @@ class WinesController < ApplicationController
   before_action :user_wines, :only => [:show]
   before_action :find_wine, :only => [:destroy, :update, :edit]
 
-  helper_method :set_user, :find_collection, :collection_of_wines, :find_wine, :user_wines, :create_wine, :new_wine
+  helper_method :set_user, :find_collection, :collection_of_wines, :find_wine, :user_wines, :create_wine
 
   def new
   end
@@ -39,13 +39,14 @@ class WinesController < ApplicationController
 
   private
 
-  def new_wine
-    Wine.new
+  def find_wine
+    if params[:id]
+      Wine.find(params[:id])
+    else
+      Wine.new
+    end
   end
 
-  def find_wine
-    Wine.find(params[:id])
-  end
 
   def set_user
     User.find(params[:user_id])

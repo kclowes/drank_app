@@ -1,7 +1,6 @@
 class CollectionsController < ApplicationController
-  before_action :set_collection, :only => [:show, :update, :destroy]
+  before_action :set_collection, :only => [:show, :update, :destroy, :new]
   before_action :new_collection, :only => [:create]
-  before_action :set_new_collection, :only => [:new]
 
   def index
   end
@@ -45,12 +44,12 @@ class CollectionsController < ApplicationController
     set_user.collections
   end
 
-  def set_new_collection
-    set_user.collections.build
-  end
-
   def set_collection
-    set_user.collections.find(params[:id])
+    if params[:id]
+      set_user.collections.find(params[:id])
+    else
+      set_user.collections.build
+    end
   end
 
   def new_collection

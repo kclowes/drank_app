@@ -1,20 +1,4 @@
 <h1>New Collection</h1>
 
-<%= form_for [set_user, set_new_collection] do |f| %>
-  <div id="new-user-form">
-    <%= render 'layouts/flash_notice' %>
+<%= render 'layouts/collections_form' %>
 
-    <div id="new_email">
-      <%= f.label :collection_name, 'Collection Name:' %>
-    </div>
-
-    <div id="new_password">
-      <%= f.text_field :collection_name, :placeholder => 'Do not leave blank' %>
-    </div>
-
-    <div id="new_collection_button">
-      <%= f.submit "Add Collection", class: 'new_collection_submit' %>
-    </div>
-
-  </div>
-<% end %>

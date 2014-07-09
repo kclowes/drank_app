@@ -5,7 +5,8 @@ describe Collection do
   it 'will create a new collection' do
     user = User.create!(email: 'keri@example.com', password: 'password')
     wine = Wine.create!(wine_type: 'Merlot')
-    Collection.create!(user_id: user.id, wine_id: wine.id, collection_name: 'Loved it!')
+    collection = Collection.create!(user_id: user.id, wine_id: wine.id, collection_name: 'Loved it!')
+    expect(collection).to be_valid
   end
 
   it 'will not be valid if the name is not present' do

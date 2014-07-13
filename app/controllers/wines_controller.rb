@@ -10,7 +10,7 @@ class WinesController < ApplicationController
 
   def create
     create_wine.save
-    redirect_to user_collection_wines_path
+    redirect_to user_collection_wines_path(set_user.id, find_collection.id)
   end
 
   def index

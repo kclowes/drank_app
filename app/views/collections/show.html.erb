@@ -4,12 +4,11 @@
   <h1><%= wine_collection %></h1>
 <% end %>
 
-
-
 <div id="add-wine-link">
   <%= link_to '+', new_user_collection_wine_path(set_user, set_collection) %>
 </div>
 
 <div id="delete_collection_link">
-  <%= link_to 'Delete Collection', user_collection_path(set_user, set_collection), method: :delete %>
+  <%= link_to 'Delete Collection', user_collection_path(set_user, set_collection),
+              method: :delete, confirm: 'Are you sure?' %>
 </div>

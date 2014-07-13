@@ -29,4 +29,13 @@ feature 'user can see wines displayed' do
     expect(page).to have_no_content('Pinot Grigio')
   end
 
+  scenario 'user is able to see all wines when not logged in' do
+    click_on 'Logout'
+    click_on 'See All Wines'
+    expect(page).to have_content 'Pinot Grigio'
+    expect(page).to have_content 'Fat bastard'
+    expect(page).to have_content '2004'
+    expect(page).to have_content '6'
+  end
+
 end

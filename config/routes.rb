@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'users#logout'
   get '/about', to: 'welcome#about'
+  get '/reset_password', to: 'users#edit'
+  post '/reset_password', to: 'users#update'
 end

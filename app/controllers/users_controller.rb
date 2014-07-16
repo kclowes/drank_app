@@ -13,6 +13,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+    @user = User.find_by_email(params[:email])
+    if @user
+      UserMailer.forgot_password_email(@user).deliver
+    end
+    flash[:notice] = "An email has been sent with instructions"
+    redirect_to sessions_path
+  end
 
   def index
     id = session[:id]

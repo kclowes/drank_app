@@ -13,19 +13,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-
-  end
-
-  def update
-    @user = User.find_by_email(params[:email])
-    if @user
-      UserMailer.forgot_password_email(@user).deliver
-    end
-    flash[:notice] = "An email has been sent with instructions"
-    redirect_to sessions_path
-  end
-
   def index
     id = session[:id]
     @user = User.find(id)
@@ -35,6 +22,23 @@ class UsersController < ApplicationController
     session.clear
     redirect_to '/about'
   end
+
+  def edit
+    @user = User.find_by_token(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(allowed_parameters)
+      session[:id] = @user.id
+      flash[:notice] = "Your password has been updated"
+      redirect_to about_path
+    else
+      render :edit
+      flash[:notice] = 'Password cannot be blank'
+    end
+  end
+
 
   def allowed_parameters
     params.require(:user).permit(

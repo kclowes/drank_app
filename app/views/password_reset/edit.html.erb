@@ -1,0 +1,16 @@
+<h1>Reset Password</h1>
+
+<%= form_for @user do |f| %>
+  <div id="new-session-form">
+    <%= render 'layouts/flash_notice' %>
+
+    <div id="exist_password">
+      <%= f.label :new_password %>
+      <%= f.password_field :new_password %>
+    </div>
+
+    <div id="login_button">
+      <%= f.submit :reset %>
+    </div>
+  </div>
+<% end %>

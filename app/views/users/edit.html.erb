@@ -1,16 +1,16 @@
-<h1>Reset Password</h1>
+<h1>Change Your Password</h1>
 
-<%= form_tag url: reset_password_path do %>
-  <div id="new-session-form">
-    <%= render 'layouts/flash_notice' %>
-
-    <div id="exist_email">
-      <%= label_tag :email %>
-      <%= text_field_tag :email %>
+<%= form_for @user do |f| %>
+  <%= render 'layouts/flash_notice' %>
+  <div id="new-user-form">
+    <div id="new_password">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
     </div>
 
-    <div id="login_button">
-      <%= button_tag 'Reset Password' %>
+    <div id="new_register_button">
+      <%= f.submit %>
     </div>
   </div>
+
 <% end %>

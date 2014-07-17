@@ -1,0 +1,16 @@
+<h1>Confirm Token</h1>
+
+<%= form_tag url: token_path do %>
+  <div id="new-session-form">
+    <%= render 'layouts/flash_notice' %>
+
+    <div id="exist_password">
+      <%= label_tag :token %>
+      <%= password_field_tag :token %>
+    </div>
+
+    <div id="login_button">
+      <%= button_tag :Submit %>
+    </div>
+  </div>
+<% end %>

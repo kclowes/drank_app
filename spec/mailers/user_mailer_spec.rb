@@ -2,15 +2,15 @@ require "spec_helper"
 
 describe UserMailer do
 
-  let(:user) { create_user(:email => 'peter@example.com') }
+  let(:user) { create_user(:email => 'peter@example.com', token: SecureRandom.uuid) }
   let(:mail) { UserMailer.forgot_password_email(user) }
 
   it "email has the correct text" do
     email_text = mail.text_part.body.to_s
     expected = <<-INPUT.chomp
-I see you have forgotten your password, peter@example.com. Here is a token to reset it. Do it now, because you only\nhave 24 hours!\n\nTo login to the site, just follow this link: http://drank.com/login.
+I see you have forgotten your password, peter@example.com. Here is a token to reset it
     INPUT
-    expect(email_text).to eq(expected)
+    expect(email_text).to start_with(expected)
   end
 
   it 'renders the subject' do

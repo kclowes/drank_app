@@ -15,9 +15,7 @@ feature 'reset password' do
 
   scenario 'reset password' do
     user = create_user(token: SecureRandom.uuid)
-    visit token_path
-    fill_in 'token', with: user.token
-    click_on 'Submit'
+    visit "/token/#{user.token}"
     expect(page).to have_content('Change Your Password')
     fill_in 'user[password]', with: 'Awesomeness'
     click_on 'Update User'

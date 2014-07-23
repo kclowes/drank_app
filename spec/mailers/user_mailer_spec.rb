@@ -14,7 +14,7 @@ I see you have forgotten your password, peter@example.com. Here is a token to re
   end
 
   it 'renders the subject' do
-    expect(mail.subject).to eq("Drank Reset Password")
+    expect(mail.subject).to eq("Reset Your Drank Password")
   end
 
   it 'renders the receiver email in the TO field' do

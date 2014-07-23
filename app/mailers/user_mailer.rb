@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def forgot_password_email(user)
     @user = user
-    @url = 'http://drank.com/login'
-    mail(to: user.email, subject: 'Drank Reset Password')
+    @url = "http://drank.com/token/#{user.token}"
+    mail(to: user.email, subject: 'Reset Your Drank Password')
   end
 end

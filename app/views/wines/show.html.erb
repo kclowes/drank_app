@@ -1,6 +1,6 @@
 <h1>All My Wines</h1>
 
-<% user_wines.each do |wine| %>
+<% @wines.each do |wine| %>
   <div id="each_wine">
     <div id="placeholder">
       <%= image_tag wine.wine_image_url(:thumb).to_s %>

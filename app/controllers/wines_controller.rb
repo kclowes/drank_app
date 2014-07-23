@@ -1,40 +1,37 @@
 class WinesController < ApplicationController
-  before_action :find_collection, :only => [:index, :new, :create]
-  before_action :user_wines, :only => [:show]
+  # before_action :find_collection, :only => [:new, :create]
   before_action :find_wine, :only => [:destroy, :update, :edit]
 
-  helper_method :set_user, :find_collection, :collection_of_wines, :find_wine, :user_wines, :create_wine
+  helper_method :find_collection, :collection_of_wines, :find_wine, :user_wines, :set_wine_collection
 
-  def new
+  def index
+    @wines = current_user ? current_user.wines : Wine.all
+    # if session[:id].nil?
+    #   @wines = Wine.all
+    # else
+    #   find_collection
+    # end
   end
+
+  def new; end
 
   def create
     create_wine.save
-    redirect_to user_collection_wines_path(set_user.id, find_collection.id)
+    redirect_to collection_path(set_wine_collection)
   end
 
-  def index
-    if session[:id].nil?
-      @wines = Wine.all
-    else
-      find_collection
-    end
-  end
+  def show; end
 
-  def show
-  end
-
-  def edit
-  end
+  def edit; end
 
   def update
     find_wine.update(allowed_parameters)
-    redirect_to user_collection_wines_path
+    redirect_to collection_path(set_wine_collection)
   end
 
   def destroy
     find_wine.destroy
-    redirect_to user_collection_wines_path
+    redirect_to collection_path(set_wine_collection)
   end
 
   private
@@ -47,31 +44,16 @@ class WinesController < ApplicationController
     end
   end
 
-
-  def set_user
-    if session[:id]
-      User.find(params[:user_id])
-    end
-  end
-
-
-  def find_collection
-    if session[:id]
-      set_user.collections.find(params[:collection_id])
-    end
-  end
-
-
   def create_wine
     collection_of_wines.build(allowed_parameters)
   end
 
-  def collection_of_wines
-    find_collection.wines
+  def set_wine_collection
+    Collection.find(params[:collection_id])
   end
 
-  def user_wines
-    set_user.wines
+  def collection_of_wines
+    set_wine_collection.wines
   end
 
   def allowed_parameters

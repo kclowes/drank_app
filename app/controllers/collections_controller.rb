@@ -1,6 +1,9 @@
-class CollectionsController < ApplicationController
+class CollectionsController < UsersController
   before_action :set_collection, :only => [:show, :update, :destroy, :new]
   before_action :new_collection, :only => [:create]
+
+  helper_method :new_collection, :set_collections, :set_collection
+
 
   def index
   end
@@ -10,7 +13,7 @@ class CollectionsController < ApplicationController
 
   def create
     if new_collection.save
-      redirect_to user_collections_path
+      redirect_to collections_path(set_collection)
     else
       flash[:notice] = 'Please enter a collection name'
       render :action => 'new'
@@ -22,7 +25,11 @@ class CollectionsController < ApplicationController
 
   def update
     set_collection.update(allowed_parameters)
-    redirect_to user_collections_path
+    if set_collection.save
+      redirect_to collection_path
+    else
+      render :edit
+    end
   end
 
   def show
@@ -30,36 +37,30 @@ class CollectionsController < ApplicationController
 
   def destroy
     set_collection.destroy
-    redirect_to user_collections_path
+    redirect_to collections_path
   end
 
   private
-  helper_method :set_user, :set_new_collection, :set_collections, :set_collection
-
-  def set_user
-    User.find(params[:user_id])
-  end
 
   def set_collections
-    set_user.collections
+    current_user.collections
   end
 
   def set_collection
     if params[:id]
-      set_user.collections.find(params[:id])
+      Collection.find(params[:id])
     else
-      set_user.collections.build
+      Collection.new
     end
   end
 
   def new_collection
-    set_user.collections.build(allowed_parameters)
+    current_user.collections.build(allowed_parameters)
   end
 
   def allowed_parameters
     params.require(:collection).permit(
       :collection_name,
-      :user_attributes => [:user_id]
     )
   end
 end

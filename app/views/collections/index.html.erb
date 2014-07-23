@@ -2,10 +2,10 @@
 
 <% set_collections.each do |collection| %>
   <div id="each_collection">
-    <%= link_to collection.collection_name, user_collection_wines_path(set_user, collection) %>
+    <%= link_to collection.collection_name, collection_path(collection) %>
   </div>
 <% end %>
 
 <div id="add-collection-link">
-  <%= link_to '+', new_user_collection_path(set_user) %>
+  <%= link_to '+', new_collection_path %>
 </div>

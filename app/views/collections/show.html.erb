@@ -1,14 +1,38 @@
-<h1><%= set_collection.collection_name %></h1>
+<h1><%= set_collection.collection_name %>
+  <div id="edit_collection_link">
+    <%= link_to 'Edit', edit_collection_path(set_collection) %>
+  </div>
+</h1>
 
-<% set_collection.wine_id do |wine_collection| %>
-  <h1><%= wine_collection %></h1>
+<% set_collection.wines.each do |wine| %>
+  <div id="each_wine">
+    <div id="placeholder">
+      <%= image_tag wine.wine_image_url(:thumb).to_s %>
+    </div>
+    <%= wine.wine_vintage %>
+    <%= wine.wine_type %>
+    <div id="wine_name">
+      <%= wine.wine_name %>
+    </div>
+    <div id="overall_rating">
+      Overall Rating:
+      <%= wine.wine_overall_rating %>
+    </div>
+    <div id="edit_link">
+      <%= link_to "Edit this #{wine.wine_type}", edit_collection_wine_path(wine.collection, wine.id) %>
+    </div>
+    <div id="delete_link">
+      <%= link_to "Delete this #{wine.wine_type}", collection_wine_path(wine.collection, wine.id),
+                  method: :delete, data: {confirm: 'Are you sure?'} %>
+    </div>
+  </div>
 <% end %>
 
 <div id="add-wine-link">
-  <%= link_to '+', new_user_collection_wine_path(set_user, set_collection) %>
+  <%= link_to '+', new_collection_wine_path(set_collection) %>
 </div>
 
 <div id="delete_collection_link">
-  <%= link_to 'Delete Collection', user_collection_path(set_user, set_collection),
-              method: :delete, confirm: 'Are you sure?' %>
+  <%= link_to 'Delete Collection', collection_path(set_collection),
+              method: :delete, data: {confirm: 'Are you sure?'} %>
 </div>

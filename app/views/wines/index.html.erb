@@ -1,4 +1,31 @@
-<% if session[:id].nil? %>
+<% if current_user %>
+
+  <h1>My Wines</h1>
+
+  <% current_user.wines.each do |wine| %>
+    <div id="each_wine">
+      <div id="placeholder">
+        <%= image_tag wine.wine_image_url(:thumb).to_s %>
+      </div>
+      <%= wine.wine_vintage %>
+      <%= wine.wine_type %>
+      <div id="wine_name">
+        <%= wine.wine_name %>
+      </div>
+      <div id="overall_rating">
+        Overall Rating:
+        <%= wine.wine_overall_rating %>
+      </div>
+      <div id="edit_link">
+        <%= link_to "Edit this #{wine.wine_type}", edit_collection_wine_path(wine.collection, wine.id) %>
+      </div>
+      <div id="delete_link">
+        <%= link_to "Delete this #{wine.wine_type}", collection_wine_path(wine.collection, wine.id), method: :delete %>
+      </div>
+    </div>
+  <% end %>
+
+<% else %>
   <h1>Wines</h1>
   <% @wines.each do |wine| %>
     <div id="each_wine">
@@ -16,45 +43,5 @@
       </div>
     </div>
   <% end %>
-<% else %>
-  <h1>
-    <div id="edit_collection_link">
-      <%= link_to 'Edit', edit_user_collection_path(set_user, find_collection) %>
-    </div>
-    <%= find_collection.collection_name %>
-  </h1>
-
-  <div id="add-wine-link">
-    <%= link_to '+', new_user_collection_wine_path(set_user, find_collection) %>
-  </div>
-  <% collection_of_wines.each do |wine| %>
-    <div id="each_wine">
-      <div id="placeholder">
-        <%= image_tag wine.wine_image_url(:thumb).to_s, class: 'placeholder' %>
-      </div>
-      <%= wine.wine_vintage %>
-      <%= wine.wine_type %>
-      <div id="wine_name">
-        <%= wine.wine_name %>
-      </div>
-      <div id="overall_rating">
-        Overall Rating:
-        <%= wine.wine_overall_rating %>
-      </div>
-      <div id="edit_link">
-        <%= link_to "Edit this #{wine.wine_type}", edit_user_collection_wine_path(set_user, find_collection, wine.id) %>
-      </div>
-      <div id="delete_link">
-        <%= link_to "Delete this #{wine.wine_type}", user_collection_wine_path(set_user, find_collection, wine.id), method: :delete %>
-      </div>
-    </div>
-  <% end %>
-
-  <div id="delete_collection_link">
-    <%= link_to 'Delete Collection', user_collection_path(set_user, find_collection), method: :delete %>
-  </div>
-
-
 <% end %>
-
 

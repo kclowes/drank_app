@@ -15,20 +15,20 @@
   <a href="/">
     <%= image_tag 'drank_logo.png' %>
   </a>
-  <% if session[:id].nil? %>
+  <% if current_user %>
+    <p>Signed in as: <%= current_user.email %></p>
+    <ul id="nav-bar">
+      <li id="nav-bar"><%= link_to 'My Collections', collections_path %></li>
+      <li id="nav-bar"><%= link_to 'My Wines', wines_path %></li>
+      <li id="nav-bar"><%= link_to 'Wine 101', about_path %></li>
+      <li id="nav-bar"><%= link_to 'Logout', logout_path %></li>
+    </ul>
+  <% else %>
     <ul id="welcome-bar">
       <li id="welcome-bar"><%= link_to 'Login', sessions_path %></li>
       <li id="welcome-bar"><%= link_to 'Register', new_user_path %></li>
       <li id="welcome-bar"><%= link_to 'See All Wines', wines_path %></li>
       <li id="welcome-bar"><%= link_to 'Wine 101', about_path %></li>
-    </ul>
-  <% else %>
-      <p>Signed in as: <%= set_user_by_session.email %></p>
-    <ul id="nav-bar">
-      <li id="nav-bar"><%= link_to 'My Collections', user_collections_path(set_user_by_session) %></li>
-      <li id="nav-bar"><a href="/users/<%= set_user_by_session.id %>/wines">My Wines</a></li>
-      <li id="nav-bar"><%= link_to 'Wine 101', about_path %></li>
-      <li id="nav-bar"><%= link_to 'Logout', logout_path %></li>
     </ul>
   <% end %>
 </header>
